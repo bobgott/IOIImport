@@ -1,0 +1,5 @@
+===============================================================================
+ v1.0.0
+===============================================================================
+Added: readme and DDWikiImportConfig-readme files
+Changed: Adding only comment files until code is more stable on local maching
