@@ -1,4 +1,4 @@
-<RESO-DDWiki-Config Date = "03/31/2017">
+<RESO-DDWiki-Config Date = "10/26/2017">
   <Form Name="Resource" Page_Template = "ResourceTemplate" Page_Title = "[[Name]] Resource" Node_Type = "Group">
     <Field Sequence = "1"   XMLName = "Resource_Description" ParsingCode = "0" AutoCompute="Y"></Field>
     <Field Sequence = "14" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="Y">Page Revision Date</Field>
@@ -21,9 +21,10 @@
     <Field Sequence = "100" XMLName = "Record_Identifier" ParsingCode = "12">RecordID</Field>
     <Field Sequence = "110" XMLName = "Lookup_Status" ParsingCode = "7">LookupStatus</Field>
     <Field Sequence = "120" XMLName = "Lookup" ParsingCode = "6">Lookup</Field>
+    <Field Sequence = "125" XMLName = "Collection_Name" ParsingCode = "14" CollectionTemplate="PropCollectionResourceTemplate">Collection</Field>
     <Field Sequence = "130" XMLName = "Suggested_Maximum_Precision" DefaultValue="">SugMaxPrecision</Field>
     <Field Sequence = "140" XMLName = "Repeating_Element" DefaultValue = "No">RepeatingElement</Field>
-    <Field Sequence = "150" XMLName = "Property_Types" ParsingCode = "4" ChildTagName = "Class">PropertyTypes</Field>
+    <Field Sequence = "150" XMLName = "Property_Types" ParsingCode = "4" ChildTagName = "Class">Property Types</Field>
     <Field Sequence = "160" XMLName = "Payloads" DefaultValue="">Payloads</Field>
     <Field Sequence = "170" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
     <Field Sequence = "190" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
@@ -31,29 +32,6 @@
     <Field Sequence = "220" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
     <Field Sequence = "240" XMLName = "Comments" DefaultValue = "">Notes</Field>
     <Field Sequence = "260" XMLName = "Lookup_Values" ParsingCode = "8">Lookup</Field>
-    <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
-  </Form>
-  <Form Name = "PropResourceCollectionField" Page_Template = "PropCollectionResourceTemplate" Page_Title = "[[Name]] Field" Node_Type = "Item">
-    <Field Sequence = "10" XMLName = "Field_Name_Standard_Name">StandardName</Field>
-    <Field Sequence = "20" XMLName = "Definition" ParsingCode = "0">Definition</Field>
-    <Field Sequence = "30" XMLName = "Groupings" ParsingCode = "5" ChildTagName = "Group">Groups</Field>
-    <Field Sequence = "40" XMLName = "Simple_Data_Type">SimpleDataType</Field>
-    <Field Sequence = "50" XMLName = "Suggested_Maximum_Length">SugMaxLength</Field>
-    <Field Sequence = "60" XMLName = "Synonyms" DefaultValue="">Synonym</Field>
-    <Field Sequence = "70" XMLName = "Element_Status" DefaultValue="Proposed">ElementStatus</Field>
-    <Field Sequence = "80" XMLName = "BEDES" DefaultValue = "">BEDES</Field>
-    <Field Sequence = "90" XMLName = "Field_Certification_Level" DefaultValue = "Platinum">CertificationLevel</Field>
-    <Field Sequence = "100" XMLName = "Record_Identifier" ParsingCode = "12">RecordID</Field>
-    <Field Sequence = "120" XMLName = "Collection_Name" ParsingCode = "14">References</Field>
-    <Field Sequence = "130" XMLName = "Suggested_Maximum_Precision" DefaultValue="">SugMaxPrecision</Field>
-    <Field Sequence = "140" XMLName = "Repeating_Element" DefaultValue = "No">RepeatingElement</Field>
-    <Field Sequence = "150" XMLName = "Property_Types" ParsingCode = "4" ChildTagName = "Class">PropertyTypes</Field>
-    <Field Sequence = "160" XMLName = "Payloads" DefaultValue="">Payloads</Field>
-    <Field Sequence = "170" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
-    <Field Sequence = "190" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
-    <Field Sequence = "200" XMLName = "Added_in_Version">AddedInVersion</Field>
-    <Field Sequence = "220" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
-    <Field Sequence = "240" XMLName = "Comments" DefaultValue = "">Notes</Field>
     <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
   </Form>
 
@@ -67,45 +45,23 @@
     <Field Sequence = "7" XMLName = "Synonyms" DefaultValue="">Synonym</Field>
     <Field Sequence = "8" XMLName = "Lookup_Status" ParsingCode = "7">LookupStatus</Field>
     <Field Sequence = "9" XMLName = "Lookup"  ParsingCode="6">Lookup</Field>
-    <Field Sequence = "10" XMLName = "Field_Certification_Level" DefaultValue = "Platinum">CertificationLevel</Field>
-    <Field Sequence = "11" XMLName = "Payloads" DefaultValue="">Payloads</Field>
-    <Field Sequence = "12" XMLName = "BEDES" DefaultValue="">BEDES</Field>
-    <Field Sequence = "13" XMLName = "Repeating_Element" DefaultValue = "No">RepeatingElement</Field>
-    <Field Sequence = "14" XMLName = "Record_Identifier" ParsingCode = "12">RecordID</Field>
-    <Field Sequence = "16" XMLName = "Comments" DefaultValue = "">Notes</Field>
-    <Field Sequence = "17" XMLName = "Element_Status" DefaultValue="Proposed">ElementStatus</Field>
-    <Field Sequence = "18" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
-    <Field Sequence = "19" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
-    <Field Sequence = "20" XMLName = "Added_in_Version" DefaultValue = "1.6.0">AddedInVersion</Field>
-    <Field Sequence = "30" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
-    <Field Sequence = "260" XMLName = "Lookup_Values" ParsingCode = "8">Lookup</Field>
-    <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
+    <Field Sequence = "10" XMLName = "Collection_Name"  ParsingCode="14" CollectionTemplate="OtherCollectionResourceTemplate">Collection</Field>
+    <Field Sequence = "20" XMLName = "Field_Certification_Level" DefaultValue = "Platinum">CertificationLevel</Field>
+    <Field Sequence = "31" XMLName = "Payloads" DefaultValue="">Payloads</Field>
+    <Field Sequence = "42" XMLName = "BEDES" DefaultValue="">BEDES</Field>
+    <Field Sequence = "53" XMLName = "Repeating_Element" DefaultValue = "No">RepeatingElement</Field>
+    <Field Sequence = "64" XMLName = "Record_Identifier" ParsingCode = "12">RecordID</Field>
+    <Field Sequence = "76" XMLName = "Comments" DefaultValue = "">Notes</Field>
+    <Field Sequence = "87" XMLName = "Element_Status" DefaultValue="Proposed">ElementStatus</Field>
+    <Field Sequence = "98" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
+    <Field Sequence = "119" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
+    <Field Sequence = "120" XMLName = "Added_in_Version" DefaultValue = "1.7.0">AddedInVersion</Field>
+    <Field Sequence = "130" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
+    <Field Sequence = "1260" XMLName = "Lookup_Values" ParsingCode = "8">Lookup</Field>
+    <Labels Sequence = "1300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
   </Form>
 
-  <Form Name = "OtherResourceCollectionField" Page_Template = "OtherCollectionResourceTemplate" Page_Title = "[[Name]] Field" Node_Type = "Item">
-    <Field Sequence = "1" XMLName = "Field_Name_Standard_Name">StandardName</Field>
-    <Field Sequence = "2" XMLName = "Definition" ParsingCode = "0">Definition</Field>
-    <Field Sequence = "3" XMLName = "Groupings" ParsingCode = "5" ChildTagName = "Group">Groups</Field>
-    <Field Sequence = "4" XMLName = "Simple_Data_Type">SimpleDataType</Field>
-    <Field Sequence = "5" XMLName = "Suggested_Maximum_Length">SugMaxLength</Field>
-    <Field Sequence = "6" XMLName = "Suggested_Maximum_Precision" DefaultValue="">SugMaxPrecision</Field>
-    <Field Sequence = "7" XMLName = "Synonyms" DefaultValue="">Synonym</Field>
-    <Field Sequence = "9" XMLName = "Collection_Name"  ParsingCode="14">References</Field>
-    <Field Sequence = "10" XMLName = "Field_Certification_Level" DefaultValue = "Platinum">CertificationLevel</Field>
-    <Field Sequence = "11" XMLName = "Payloads" DefaultValue="">Payloads</Field>
-    <Field Sequence = "12" XMLName = "BEDES" DefaultValue="">BEDES</Field>
-    <Field Sequence = "13" XMLName = "Repeating_Element" DefaultValue = "No">RepeatingElement</Field>
-    <Field Sequence = "14" XMLName = "Record_Identifier" ParsingCode = "12">RecordID</Field>
-    <Field Sequence = "16" XMLName = "Comments" DefaultValue = "">Notes</Field>
-    <Field Sequence = "17" XMLName = "Element_Status" DefaultValue="Proposed">ElementStatus</Field>
-    <Field Sequence = "18" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
-    <Field Sequence = "19" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
-    <Field Sequence = "20" XMLName = "Added_in_Version" DefaultValue = "1.6.0">AddedInVersion</Field>
-    <Field Sequence = "30" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
-    <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
-  </Form>
-
-  <Form Name = "ReferenceResourceField" Page_Template = "ReferenceResourceTemplate" Page_Title = "[[Name]] Field" Node_Type = "Item">
+  <Form Name = "CollectionResourceField" Page_Template = "ReferenceResourceTemplate" Page_Title = "[[Name]] Field" Node_Type = "Item">
     <Field Sequence = "1" XMLName = "Field_Name_Standard_Name">StandardName</Field>
     <Field Sequence = "2" XMLName = "Definition" ParsingCode = "0">Definition</Field>
     <Field Sequence = "3" XMLName = "Groupings" ParsingCode = "5" ChildTagName = "Group">Groups</Field>
@@ -125,7 +81,7 @@
     <Field Sequence = "27" XMLName = "Element_Status" DefaultValue="Proposed">ElementStatus</Field>
     <Field Sequence = "28" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
     <Field Sequence = "29" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
-    <Field Sequence = "30" XMLName = "Added_in_Version" DefaultValue = "1.6.0">AddedInVersion</Field>
+    <Field Sequence = "30" XMLName = "Added_in_Version" DefaultValue = "1.7.0">AddedInVersion</Field>
     <Field Sequence = "35" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
     <Field Sequence = "260" XMLName = "Lookup_Values" ParsingCode = "8">Lookup</Field>
     <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
@@ -157,7 +113,7 @@
     <Field Sequence = "90" XMLName = "LookupID" ParsingCode = "10" >LookupID</Field>
     <Field Sequence = "100" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
     <Field Sequence = "120" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
-    <Field Sequence = "140" XMLName = "DDVersionAdded" DefaultValue = "1.6.0" ParsingCode = "0">AddedInVersion</Field>
+    <Field Sequence = "140" XMLName = "DDVersionAdded" DefaultValue = "1.7.0" ParsingCode = "0">AddedInVersion</Field>
     <Field Sequence = "150" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="Y">ModificationTimestamp</Field>
     <Field Sequence = "160" XMLName = "Comments" ParsingCode = "0" DefaultValue = "">Comments</Field>
     <Labels Sequence = "200" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_lookupvalue,page_dynamic,page_item,lookup_status_proposed</Labels>
