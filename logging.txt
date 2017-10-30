@@ -1,0 +1,10 @@
+2017-10-29 10:05:21,977 (IOI_Import:INFO) Starting IOI xlsx-to-xml. Program verson:10/27/2017
+2017-10-29 10:05:21,978 (IOI_Import:INFO) Importing file:'SocialMedia_Phone DD1.7 2017 Working.xlsx' with date:11-01-2017 00:00
+2017-10-29 10:05:21,978 (IOI_Import:INFO) Base Folder for config files is: C:\Users\bobg\Documents\Technology\Programming\Python\Projects\IOIImport
+2017-10-29 10:05:21,978 (IOI_Import:INFO) Data File Folder is: C:\Users\bobg\Documents\Technology\Programming\Python\Projects\IOIImport\files
+2017-10-29 10:05:21,978 (IOI_Import:INFO) Input RESO Export XML file:ddwiki_stat_log2017-10-23.txt;  Input RESO Stat/Max ID File:reso-ddwiki-export 2017-10-22 DRAFT v1.7.xml
+2017-10-29 10:05:21,980 (IOI_Import:INFO) Resultant Output IOI XML File: SocialMedia_Phone DD1.7 2017 Working.xml
+2017-10-29 10:05:23,981 (IOI_Import.DictToXML:INFO) [DXM-33] Note on Existing DD Wiki: 1269 fields found, 4216 lookup values found
+2017-10-29 10:05:24,005 (IOI_Import.DictToXML:INFO) [DXM-42] Creating Base Max RecordID for resource 'SocialMedia' with value 444000
+2017-10-29 10:05:24,009 (IOI_Import.DictToXML:INFO) [DXM-42] Creating Base Max RecordID for resource 'OtherPhone' with value 445000
+2017-10-29 10:05:24,021 (IOI_Import:INFO) ** Program Ends in Success **
