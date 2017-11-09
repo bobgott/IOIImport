@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 logging.txt
 *.pyc
 *.pyo
@@ -10,3 +11,13 @@ dist/
 files/
 XLS-to-CSV/
 
+=======
+*.pyc
+*.pyo
+files/
+.idea/
+Archive/
+XLS-to-CSV/
+
+
+>>>>>>> 2a2b778b10a519a882e40678d7eb26a4cdf79a5a
