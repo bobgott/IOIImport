@@ -1,7 +1,8 @@
 *.pyc
 *.pyo
-files
-.idea
-Archive
-XLS-to-CSV
+files/
+.idea/
+Archive/
+XLS-to-CSV/
+
 
