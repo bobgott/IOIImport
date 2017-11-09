@@ -1,0 +1,12 @@
+logging.txt
+*.pyc
+*.pyo
+*.xhtml
+
+.idea/
+__pycache__/
+Archive/
+dist/
+files/
+XLS-to-CSV/
+
