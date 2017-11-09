@@ -4,5 +4,8 @@ files/
 .idea/
 Archive/
 XLS-to-CSV/
+__pycache__/
+applic/__pycache__
+
 
 
