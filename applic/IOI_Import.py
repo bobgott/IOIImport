@@ -5,14 +5,12 @@ import logging
 import ntpath
 import os
 import sys
-
 import openpyxl
-
 from applic.dicttoxml import DictToXML, DXMLGeneratedError
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
-__version_date__ = "10/29/2017"
+__version_date__ = "04/24/2018"
 __err_prefix__ = 'IOI'
 __high_err_num__ = 13
 
@@ -20,6 +18,7 @@ __high_err_num__ = 13
 04/17/2017 - Groups column can be separated with '_' or ','
 06/14/2017 - Removed DD Wiki Version text (not used)
 10/29/2017 - Program starting from __init()__.py. Changed main folder name to 'files'
+04/21/2018 - Added Spanish columns to config.ini
 """
 class IOIGeneratedError(Exception):
     """

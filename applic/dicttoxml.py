@@ -7,12 +7,11 @@ from namedentities import *
 from treelib import Tree
 from treelib.tree import NodeIDAbsentError, MultipleRootError
 from lxml import etree as xml_tree
-from lxml.etree import XMLSyntaxError
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
-__version_date__ = "05/24/2017"
-__high_err_num__ = 42
+__version_date__ = "04/21/2018"
+__high_err_num__ = 44
 
 """ Change log
 3/30/2017 - See section: elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_LOOKUP_FLDID:
@@ -24,6 +23,7 @@ __high_err_num__ = 42
 5/23/2017 - Added fnx _add_reference_sub_nodes() to handle collection field 'References' (see: PARSE_FLD_REFERENCES)
 5/24/2017 - For a collection node (PARSE_FLD_COLLECTION), The Node value and link attribute will be the same as in config.ini
 5/24/2017 - Added ' Field' to collection reference columns for clarity 
+4/24/2018 - Fixed bug in finding duplicate names within lookup values
 """
 class DXMLGeneratedError(Exception):
     """
@@ -158,7 +158,7 @@ class DictToXML:
         config_filename = self.working_directory + "\\DDWikiImportConfig.xml"
         try:
             config_tree = xml_tree.parse(config_filename)
-        except (IOError, XMLSyntaxError):
+        except (IOError, xml_tree.XMLSyntaxError):
                 raise DXMLGeneratedError('[DXM-10] Cannot Open/Process Config File ' + config_filename)
 
         config = {}  # Translate config xml file into internal dictionary
@@ -361,10 +361,20 @@ class DictToXML:
         """
         # Field names have ' Field' concatenated to end. Remove text
 
-        suffix = full_page_title.rsplit(' ', 1)[1]  # Get last word in title
+        if len(full_page_title.rsplit(' ', 1)) == 1:
+            suffix = full_page_title
+        else:
+            try:
+                suffix = full_page_title.rsplit(' ', 1)[1]  # Get last word in title
+            except IndexError:
+                raise DXMLGeneratedError("[DXM-44] Index Error on creating page title with '{}'".format(full_page_title))
         if suffix in self.SPECIAL_PAGE_SUFFIX: # Don't check special page names
             return full_page_title
-        item_name = full_page_title.split(' ')[0] # Get 1st word
+        if page_template == 'LookupValueTemplate':
+            item_name = full_page_title
+            suffix = ''
+        else:
+            item_name = full_page_title.split(' ')[0] # Get 1st word
         # See if the Name exists
         if item_name in self.field_and_lookup_names:
             """
@@ -967,6 +977,13 @@ class DictToXML:
                     if line[0:2] != '**':
                         sline = line.split()
                         if len(sline) > 0:
+                            if sline[0] == 'Deprecated':
+                                if sline[1] == 'Fields':
+                                    del sline[1]
+                                elif sline[1] == 'Lookup':
+                                    sline[1:3] = []
+
+                            # bug: Deprecated lines in max have 6 fields ('Fields'/'Lookup') not concatenated
                             if len(sline) != 5:
                                 raise DXMLGeneratedError("[DXM-23] Max ID File expecting 5 cols per row for {} in:{}".
                                                          format(sline[0], max_id_file))

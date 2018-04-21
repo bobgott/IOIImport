@@ -9,7 +9,7 @@ Converts MS Excel .xlsx files into .xml file (*IOI XML Import File*) for IOI to 
 * -f **--working_folder** <*current folder*>
   * Default folder for config and error log files                  
 * -x **--xlsx_filename** <*none*>
-  * Input .xlsx file containing new fields and lookups. File located in sub folder **StorageFiles** to working_folder.
+  * Input .xlsx file containing new fields and lookups. File located in sub folder **StorageFiles** under working_folder/files.
   * Resultant **IOI xml import file** has same file name as xlsx file with xml used as extension
 * -i **--max_id_filename** <*stat_warning_log.txt*>
   * Input file containing DD Wiki max record and lookup ids. Created by RESOExporter. 

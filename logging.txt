@@ -1,10 +1,31 @@
-2017-10-29 10:05:21,977 (IOI_Import:INFO) Starting IOI xlsx-to-xml. Program verson:10/27/2017
-2017-10-29 10:05:21,978 (IOI_Import:INFO) Importing file:'SocialMedia_Phone DD1.7 2017 Working.xlsx' with date:11-01-2017 00:00
-2017-10-29 10:05:21,978 (IOI_Import:INFO) Base Folder for config files is: C:\Users\bobg\Documents\Technology\Programming\Python\Projects\IOIImport
-2017-10-29 10:05:21,978 (IOI_Import:INFO) Data File Folder is: C:\Users\bobg\Documents\Technology\Programming\Python\Projects\IOIImport\files
-2017-10-29 10:05:21,978 (IOI_Import:INFO) Input RESO Export XML file:ddwiki_stat_log2017-10-23.txt;  Input RESO Stat/Max ID File:reso-ddwiki-export 2017-10-22 DRAFT v1.7.xml
-2017-10-29 10:05:21,980 (IOI_Import:INFO) Resultant Output IOI XML File: SocialMedia_Phone DD1.7 2017 Working.xml
-2017-10-29 10:05:23,981 (IOI_Import.DictToXML:INFO) [DXM-33] Note on Existing DD Wiki: 1269 fields found, 4216 lookup values found
-2017-10-29 10:05:24,005 (IOI_Import.DictToXML:INFO) [DXM-42] Creating Base Max RecordID for resource 'SocialMedia' with value 444000
-2017-10-29 10:05:24,009 (IOI_Import.DictToXML:INFO) [DXM-42] Creating Base Max RecordID for resource 'OtherPhone' with value 445000
-2017-10-29 10:05:24,021 (IOI_Import:INFO) ** Program Ends in Success **
+2018-04-21 10:19:50,801 (IOI_Import:INFO) Starting IOI xlsx-to-xml. Program verson:10/29/2017
+2018-04-21 10:19:50,801 (IOI_Import:INFO) Importing file:'DDWiki_1_7 Lookups v5 2018-04-15.xlsx' with date:04-20-2018 00:00
+2018-04-21 10:19:50,801 (IOI_Import:INFO) Base Folder for config files is: C:\Users\suppo\Documents\Technology\Programming\Python\Projects\IOIImport
+2018-04-21 10:19:50,801 (IOI_Import:INFO) Data File Folder is: C:\Users\suppo\Documents\Technology\Programming\Python\Projects\IOIImport\files
+2018-04-21 10:19:50,801 (IOI_Import:INFO) Input RESO Export XML file:ddwiki_stat_log_(DRAFT)_2018-04-20.txt;  Input RESO Stat/Max ID File:reso-ddwiki-export 2018-04-20 DRAFT v1.7.xml
+2018-04-21 10:19:50,802 (IOI_Import:INFO) Resultant Output IOI XML File: DDWiki_1_7 Lookups v5 2018-04-15.xml
+2018-04-21 10:19:51,163 (IOI_Import.DictToXML:INFO) [DXM-33] Note on Existing DD Wiki: 1305 fields found, 4218 lookup values found
+2018-04-21 10:19:51,180 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'Appliances' with value 446000
+2018-04-21 10:19:51,196 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'AssociationAmenities' with value 447000
+2018-04-21 10:19:51,211 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'Basement' with value 448000
+2018-04-21 10:19:51,216 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'CommunityFeatures' with value 449000
+2018-04-21 10:19:51,219 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'Cooling' with value 450000
+2018-04-21 10:19:51,225 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'DoorFeatures' with value 451000
+2018-04-21 10:19:51,226 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'ExteriorFeatures' with value 452000
+2018-04-21 10:19:51,232 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'FireplaceFeatures' with value 453000
+2018-04-21 10:19:51,241 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'Flooring' with value 454000
+2018-04-21 10:19:51,248 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'Heating' with value 455000
+2018-04-21 10:19:51,257 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'HorseAmenities' with value 456000
+2018-04-21 10:19:51,260 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'LaundryFeatures' with value 457000
+2018-04-21 10:19:51,266 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'LotFeatures' with value 458000
+2018-04-21 10:19:51,277 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'OtherEquipment' with value 459000
+2018-04-21 10:19:51,281 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'ParkingFeatures' with value 460000
+2018-04-21 10:19:51,295 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'PatioAndPorchFeatures' with value 461000
+2018-04-21 10:19:51,298 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'PoolFeatures' with value 462000
+2018-04-21 10:19:51,305 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'SecurityFeatures' with value 463000
+2018-04-21 10:19:51,311 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'ShowingRequirements' with value 464000
+2018-04-21 10:19:51,316 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'SpaFeatures' with value 465000
+2018-04-21 10:19:51,318 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'View' with value 466000
+2018-04-21 10:19:51,326 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'WaterfrontFeatures' with value 467000
+2018-04-21 10:19:51,330 (IOI_Import.DictToXML:INFO) [DXM-43] Creating Base Max Lookup Field ID for 'WindowFeatures' with value 468000
+2018-04-21 10:19:51,354 (IOI_Import:INFO) ** Program Ends in Success **

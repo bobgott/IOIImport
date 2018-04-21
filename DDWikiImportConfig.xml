@@ -108,9 +108,11 @@
     <Field Sequence = "40" XMLName = "Synonyms">Synonym</Field>
     <Field Sequence = "50" XMLName = "BEDES" DefaultValue = "">BEDES</Field>
     <Field Sequence = "60" XMLName = "References" ParsingCode = "4" ChildTagName = "Reference">References</Field>
-    <Field Sequence = "70" XMLName = "Lookup_Status" DefaultValue="Proposed">LookupStatus</Field>
+    <Field Sequence = "70" XMLName = "Element_Status" DefaultValue="Proposed">LookupStatus</Field>
     <Field Sequence = "80" XMLName = "Lookup_FieldID" ParsingCode = "11">LookupFieldID</Field>
     <Field Sequence = "90" XMLName = "LookupID" ParsingCode = "10" >LookupID</Field>
+    <Field Sequence = "94" XMLName = "Spanish_Lookup_Field" DefaultValue = "">SpanishLookupField</Field>
+    <Field Sequence = "97" XMLName = "Spanish_Lookup_Value" DefaultValue = "">SpanishLookupValue</Field>
     <Field Sequence = "100" XMLName = "Status_Change_Date" ParsingCode = "3" DefaultValue = "*">StatusChangeDate</Field>
     <Field Sequence = "120" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
     <Field Sequence = "140" XMLName = "DDVersionAdded" DefaultValue = "1.7.0" ParsingCode = "0">AddedInVersion</Field>
