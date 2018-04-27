@@ -1,48 +1,47 @@
-# IOI_Import.py
-Converts MS Excel .xlsx files into .xml file (*IOI XML Import File*) for IOI to create confluence pages in temp work space.
+# Creating an IOI Import XML File
+This project converts RESO Data Dictionary New Fields/Lookups from an .xlsx file into IOI .xml import file for IOI to create confluence pages in a temporary Confluence work space.
 
 ## Input Spreadsheet (xlsx) files
-* See gsheet template [DDWiki_1_7_Template v4 Sheets](https://drive.google.com/open?id=0B2lpfxXm4mUYMUVydkpVMkJqaWM)
+Workbook (.xlsx) must be in the format as dictacted in the template below. Instructions are also included in the template workbook. All rows in a worksheet tab must belong to the same Resource
+* See template [DDWiki_1_7_Template v8 Sheets](https://drive.google.com/file/d/1h8LbdsWnbh1To1IGRJOs3T-6RxHcToor/view?usp=sharing) dated Apr 26 2018.
 
 ## Program Command Line Arguments 
 * -h, **--help**
-* -f **--working_folder** <*current folder*>
-  * Default folder for config and error log files                  
-* -x **--xlsx_filename** <*none*>
-  * Input .xlsx file containing new fields and lookups. File located in sub folder **StorageFiles** under working_folder/files.
-  * Resultant **IOI xml import file** has same file name as xlsx file with xml used as extension
-* -i **--max_id_filename** <*stat_warning_log.txt*>
-  * Input file containing DD Wiki max record and lookup ids. Created by RESOExporter. 
-  * File is in sub folder **StorageFiles** to working_folder.
-* -w **--ddwiki_export_filename** <*none*>
-  * Input file of latest DD Wiki exported XML file. Used to check for duplicate page titles.
-  * Created by RESOExporter. 
-  * File is in sub folder **StorageFiles** to working_folder.
-* -d **--xlsx_date** <*today*>
-  * Default date value (Status Change Date, Revised Date, Mod Date) for input spreadsheet (YYYY-MM-DD)
-* -e **--error_logging** <*20*>
+* -f, **--home_folder** <*current folder*>
+  * Default root folder for all applications, configuration files, error log files, etc.
+* -c, **--config_sub_folder** <'current'>
+  * Sub Folder under 'files' then 'config' containg configuration and ini files                  
+* -x, **--xlsx_filename** <*none*>
+  * Input .xlsx file containing new fields and lookups to be imported into DD Wiki. 
+  * File located under 'files' then 'input' folder.*
+  * **Note:** Resultant/Output file for IOI has same file name as xlsx file but using .xml as file extension and located under 'files' then 'xml' folder.
+* -i, **--max_id_filename** <*stat_warning_log.txt*>
+  * Input file containing DD Wiki max record and lookup ids. File created by WikiExporter. 
+  * File located under 'files' then 'input' folder. *
+* -w, **--ddwiki_exported_xml_filename** <*none*>
+  * Input xml file from created by WikiExported. Used to check for duplicate page titles. File created by WikiExporter. 
+  * File located under 'files' then 'input' folder. *
+* -d, **--xlsx_date** <*today*>
+  * Default date value for *Status Change Date, Revised Date, Mod Date* for Resultant/Output file
+* -e, **--error_logging** <*20*>
   * Error Logging Level (0-None, 10-Debug, 20-Info, 30-Warn, 40-Err, 50-Critical)
 
 ## Config.ini 
-* **Purpose:** Describes how xlsx tabs/worksheets relate to DD Wiki resource/lookups, Resource/Collection definitions and page link text to specicif confluence pages.
-* Section: **ResourceSheets**. key=.xlxs tab name, value=resource name in xml
-  * Defines which resource/collection xlsx sheets (tabs) program should be transferred to IOI Import xml file
+* **Purpose:** Describes how input xlsx tabs/worksheets relate to the resultant DD Wiki IOI import xml file. 
+* Section: **ResourceSheets** - key: .xlxs sheet/tab name, value: DD Wiki Resource name
+  * Maps xlsx sheets (tabs) to DD Wiki resource or collections that will be transferred to resultant IOI Import xml file and hence the DD Wiki confluence pages.
   * Notes on Resource fields with a Collection datatype
-    * All fields within the same resource with a Collection datatype need to be grouped in same separate tab
-    * Collections have a different wiki page format
-    * A Collection sheet/tab name must end with ' Collection' otherwise assumed as Resource
-    * The 'Collection' column in a xlsx Resource tab must be named 'Collection'
-  * Collection are a type of Resource need to be grouped in separate tabs. The tab name must end with ' Collection'
-* Section: **LookupSheets**. key=**LookupSheet**, value = .xlsx lookup tab name
-  * Defines which Lookup sheet (tab) program should be transferred to IOI Import xml file
-  * **note:** a xlsx can only have 1 sheet/tab dedicated to lookups
-* Section: **Resource-Descriptions**. key=xml resource name, value=resource defintion as it will appear in wiki. The key should have the word ' Collection' for Collections otherwise a Resource is assumed. (' Resource' is not needed in key)
-* Section: **PageLinks**. key=Display link text for Collection, Reference or Prop Type columns, value=Confluence Page Name to link
-  * The Confluence Page Name has to match Confluence page title
+    * All fields within the same resource or collection need to be grouped in same tab.
+* Section: **LookupSheets** - key:**LookupSheet**, value: .xlsx lookup tab name *(note: different order than [ResourceSheets])*
+  * Defines which sheet (tab) program should be transferred to Lookup Fields and Values for the IOI Import xml file
+  * **note:** A xlsx file can only have 1 sheet/tab dedicated to lookups. 
+* Section: **Resource-Descriptions** - key=xml resource/collection name, value=resource/collection defintion as it will appear in wiki.
+* Section: **PageLinks** - key: xml resource/collection name, value: Confluence Page Name
+  * The Confluence Page Name has to match Confluence page title. This also identifies between resource or collection
 
-## DDWikiImportConfig.xml and resultant (*e.g output*) xml file 
-  * DDWikiImportConfig.xml describes format for resultant IOI_Import output xml file. See **DDWikiImportConfig-readme.md** for further detail.
-  * The resultant IOI_Import XML are processing instructions on how to create Confluence pages
+## DDWikiImportConfig.xml and resultant (*e.g output*) IOI import xml file 
+  * DDWikiImportConfig.xml describes format for resultant IOI import output xml file. See **DDWikiImportConfig-readme.md** for further detail.
+  * The resultant IOI import xml file contains processing instructions on how IOI should create DD Wiki Confluence pages
   * The resultant file will have 2 types of XML tags, 'Group' and 'Item'.
     * **Group**: A parent node corresponding to a summary Confluence page that is not a field or lookup
       * Groups are summary pages that represent collections (e.g. children) of Items and other Groups.
@@ -51,16 +50,15 @@ Converts MS Excel .xlsx files into .xml file (*IOI XML Import File*) for IOI to 
       * XML Item nodes contain detailed information about a Data Dictionary field or lookup
       * Items Will Not contain other Group or Item nodes.
   * Each node in the resultant XML file (*not including the root*) will correspond to a Wiki page and will appear as tree nodes in the DD Wiki navigation bar.
-	* The IOI XML Import file is already structured and in the order as it should appear in the final DD Wiki pages
-  * Confluence Notes for programming import process: [DD Wiki IOI Import Process - Phase 3b](https://goo.gl/XHTlmN)
+	* The IOI XML Import file is structured and in the order as it should appear in the final DD Wiki pages
 
 ## Other Notes of Importance
-### Copy latest exported xml and wiki stat file
-* IOI_Import requires two files created by the RESOConfluenceExporter project. They are:
+### Prior to running progra, copy latest exported xml and wiki stat file
+* IOI_Import requires two files created by the WikiExporter project. They are:
   * Exported XML File: DD Wiki Representation in xml
   * DD Wiki Stat File: Text file listing max id numbers used in Resources, Collections and Lookup Fields
   
-Last Modification Date: *Oct 26 2017*  
+Last Modification Date: *Apr 26 2018*  
 
 
 

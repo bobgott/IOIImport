@@ -30,7 +30,6 @@
     <Field Sequence = "190" XMLName = "Revised_Date" ParsingCode = "3" DefaultValue = "*">RevisedDate</Field>
     <Field Sequence = "200" XMLName = "Added_in_Version">AddedInVersion</Field>
     <Field Sequence = "220" XMLName = "ModificationTimestamp" ParsingCode = "3" AutoCompute="N" DefaultValue = "*">ModificationTimestamp</Field>
-    <Field Sequence = "240" XMLName = "Comments" DefaultValue = "">Notes</Field>
     <Field Sequence = "260" XMLName = "Lookup_Values" ParsingCode = "8">Lookup</Field>
     <Labels Sequence = "300" XMLName = "Labels" ParsingCode = "1" ChildTagName = "Label">page_item,page_dynamic,field_status_proposed</Labels>
   </Form>

@@ -1,7 +1,7 @@
 # DDWikiImportConfig.xml Format
-DDWikiImportConfig.xml describes content and format for IOI_Import output xml file.
+DDWikiImportConfig.xml describes content and format for the resultant IOI Import xml file.
 ## *Background:* Node Structure for the IOI_Import output xml file
-* The IOI_Import output xml file will have 2 types of XML nodes, 'Group' and 'Item'.
+* The IOI import xml file will have 2 types of XML nodes, 'Group' and 'Item'.
     * **Group**: A parent node corresponding to a summary Confluence page that is not a field or lookup
       * Groups are summary pages that represent collections (e.g. children) of Items and other Groups.
       * A Group will display as a tree node in the DD wiki navigation bar.  
@@ -9,19 +9,19 @@ DDWikiImportConfig.xml describes content and format for IOI_Import output xml fi
       * XML Item nodes contain detailed information about a Data Dictionary field or lookup
       * Items Will Not contain other Group or Item nodes.
 * Each node in the XML file (*not including the root*) will correspond to a Wiki page and will appear in the DD Wiki navigation bar.
-  * The IOI XML Import file is written in the order as pages should appear in the final DD Wiki.
+  * The IOI XML Import file is created in the order as pages should appear in the final DD Wiki.
 
 ### DDWikiImportConfig.xml Construct
 #### **Tag: Form** - Defines fields for a Confluence page type
-* **Attribute Name:** Form Identifier
+* **Attribute Name:** Tag/Form Identifier
 * **Attribute Page_Template:** Confluence Wiki Template Page Title
 * **Attribute Page_Title:** DD Wiki Confluence Page Title 
   * [[*xxx*]] - Replace [[*xxx*]] with name of Resource or Collection
-* **Attribute Node_Type:** *Group* or *Item*
+* **Attribute Node_Type:** Contains child node type values of *Group* or *Item*
 
 #### **Tag: Field** - Describes all fields within a Form
 * **Attribute Sequence:** Order this column will appear in output xml file (*order is not important, but helpful in debugging*)
-* **Attribute XMLName:** Name of column matched with Wiki Template for column
+* **Attribute XMLName:** Name of column matched with Wiki Template for column *(see Page_Template above)*
 * **Attribute ParsingCode:** *(See Parse commands below)*
 * **Attribute ChildTagName:** Name of child tag for complex node such as property types
 * **Attribute AutoCompute:** Auto calculate field. Ignore any column in xlsx
@@ -31,9 +31,10 @@ DDWikiImportConfig.xml describes content and format for IOI_Import output xml fi
 
 #### **Tag: Labels** - Describes Confluence labels to be applied to Form
 * **Attribute Sequence:** Order this column will appear in output xml file
-* **Attribute XMLName:** Name of column matched with Wiki Template for column placement
+* **Attribute XMLName:** Name of column matched with Wiki Template for column placement 
 * **Attribute ParsingCode:** *(See Parse commands below)*
 * **Attribute ChildTagName:** Name of child tag for complex node such as property types
+* **Value**: A list of labels (seperated by ',') to be applied to the final DD Wiki confluence page.
 
 ## Parse commands
     PARSE_SIMPLE = 0            # Convert val from xlsx for XML file
@@ -52,4 +53,4 @@ DDWikiImportConfig.xml describes content and format for IOI_Import output xml fi
     PARSE_FLD_REFERENCES = 13   # Parse Reference columns in Resource (collections)
     PARSE_FLD_COLLECTION = 14   # Parse a 'Collection' column to point to collection resource
 
-Modification Date: *Oct 26 2017*
+Modification Date: *Apr 26 2018*

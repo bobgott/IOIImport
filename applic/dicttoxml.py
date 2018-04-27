@@ -10,8 +10,8 @@ from lxml import etree as xml_tree
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
-__version_date__ = "04/21/2018"
-__high_err_num__ = 44
+__version_date__ = "04/25/2018"
+__high_err_num__ = 47
 
 """ Change log
 3/30/2017 - See section: elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_LOOKUP_FLDID:
@@ -21,10 +21,13 @@ __high_err_num__ = 44
 5/02/2017 - Added logic for Repeating Elements / Collections (PARSE_FLD_REFERENCES)
 5/09/2017 - Added logic for 'Collection' type resources. Relies on self.page_links[]
 5/23/2017 - Added fnx _add_reference_sub_nodes() to handle collection field 'References' (see: PARSE_FLD_REFERENCES)
-5/24/2017 - For a collection node (PARSE_FLD_COLLECTION), The Node value and link attribute will be the same as in config.ini
+5/24/2017 - For a collection node (PARSE_FLD_COLLECTION), Node value & link attribute will be the same as in config.ini
 5/24/2017 - Added ' Field' to collection reference columns for clarity 
 4/24/2018 - Fixed bug in finding duplicate names within lookup values
+4/25/2017 - Modified how code differentiates between Property Resource, Other Resources and Collections
 """
+
+
 class DXMLGeneratedError(Exception):
     """
     Handle known problems in this module passing detail information
@@ -37,7 +40,6 @@ class DXMLGeneratedError(Exception):
 
 
 class DictToXML:
-    # High E# 511
     XML_ROOT_TAG = 'wikiimport'
     DATETIME_FORMAT = '%m/%d/%Y %H%M'
     XLSX_DATETIME_FORMAT = "%Y%m%dT%H%M"
@@ -53,7 +55,7 @@ class DictToXML:
     PARSE_LOOKUP_STATUS = 7     # Correct bad data in xlsx - force n/a for non-lookups
     PARSE_LOOKUP_FIELD = 8      # within a Lookup Value
     PARSE_MOD_TIMESTAMP = 9     # Insert today's date (e.g Revision Date)
-    PARSE_LOOKUPID  = 10        # Compute LookupID
+    PARSE_LOOKUPID = 10         # Compute LookupID
     PARSE_LOOKUP_FLDID = 11     # Compute LookupFieldID
     PARSE_RECORDID = 12         # Compute RecordID
     PARSE_FLD_REFERENCES = 13   # Parse Reference columns in Resource (collections)
@@ -67,19 +69,17 @@ class DictToXML:
     REFERENCE_NOLOOKUP_TEMPLATE = 'ReferenceNoLookupResourceTemplate'
     STANDARD_NAME_COLUMN = 'StandardName'
     SPECIAL_PAGE_SUFFIX = ['Resource', 'Group', 'Collection', 'Fields', 'Values', 'Lookups']
-    # Note: DefaultValue only works for PARSE_SIMPLE and PARSE_DATETIME
-    # Note: Replaced Group contents '_History' with '_HistoryTransactional' in HistoryTransactional tab
-    # Note: Kludge in Lookup values for empty lookup fields (see: 'DD 1.4 for Update 2016_0211.xlsx')
-    def __init__(self, working_directory, max_id_filepath, ddwiki_export_filepath,
+
+    def __init__(self, files_and_folders, max_id_filepath, ddwiki_exported_filepath,
                  result_xml_filepath,
                  spreadsheet_dict,
                  xlsx_date,
                  program_config_data=None):
         """ Convert internal .xlsx dict to specially formatted XML file to be used for importing into Confluence DD Wiki
 
-        :param working_directory: (str) config folder. Usually main project folder
+        :param files_and_folders: (obj) object containing file locations
         :param max_id_filepath: (str) File name/path for file containing DD Wiki max lookupids (stat_warning_log.txt)
-        :param ddwiki_export_filepath: (str) File name/path for latest dd wiki xml exported file
+        :param ddwiki_exported_filepath: (str) File name/path for latest dd wiki xml exported file
         :param result_xml_filepath: (str) File name/path for resultant IOI import xml file
         :param spreadsheet_dict: (dict) xlsx file data converted into internal dict format
         :param xlsx_date: (datetime) Timestamp for result_xml_filepath
@@ -87,22 +87,21 @@ class DictToXML:
         :return: None. Raise DXMLGeneratedError on error.
         """
         self.logger = logging.getLogger(__project__ + '.' + self.__class__.__name__)
-        self.report_warning = True # Report certain warning messages only once
+        self.report_warning = True  # Report certain warning messages only once
         self.start_datetime = datetime.datetime.today()
         self.date_format_notime = '%b %d %Y'
         self.date_format_withtime = '%b %d %Y %I:%M %p'  # Uses AM/PM format
         self.start_datetime_str = self.start_datetime.strftime(self.date_format_notime)
-        self.working_directory = working_directory
         self.spreadsheet_data = spreadsheet_dict    # xlsx converted into a dictionary
         self.field_and_lookup_names = []   # Used to ensure unique page titles
         self.program_config_data = program_config_data  # setup info from config.ini
-        self.resource_descriptions = {} # retrieved from config.ini
+        self.resource_descriptions = {}  # retrieved from config.ini
         self.page_links = {}  # Translate xlsx columns into appropriate text for Lookup page links (config.ini)
         self.resource_tree = None  # Create internal tree for Wiki output structure (xml output file)
         self._read_ini_config_data()  # Convert config.ini info into dict {}
-        self.xml_config_data = self._read_xml_config_file()  # Read config file that defines xlsx->xml rules
+        self.xml_config_data = self._read_xml_config_file(files_and_folders)  # Read config. defines xlsx->xml rules
         self._read_max_ids(max_id_filepath)
-        self._load_page_titles_from_ddwiki_export(ddwiki_export_filepath)  # check for dup confluence page titles
+        self._load_page_titles_from_ddwiki_export(ddwiki_exported_filepath)  # check for dup confluence page titles
         self.xml_root = xml_tree.Element(self.XML_ROOT_TAG)  # Setup root output XML node
         self.xml_root.set('XMLCreateDate', self.start_datetime.strftime(self.INTERNAL_OUTPUT_DATE_FORMAT))
         self.xml_root.set('XlsxDate', xlsx_date.strftime(self.INTERNAL_OUTPUT_DATE_FORMAT))
@@ -111,22 +110,22 @@ class DictToXML:
         self._create_lookups()  # Create lookup fields/value nodes in IOI import xml
         self.write_xml_file(result_xml_filepath)
 
-    def _load_page_titles_from_ddwiki_export(self, ddwiki_export_filepath):
+    def _load_page_titles_from_ddwiki_export(self, ddwiki_exported_filepath):
         """ Load Page Titles from exported xml file. Needed to check for duplicate Confluence page titles.
         .. store into variable: (dict) field_and_lookup_names
 
-        :param ddwiki_export_filepath: (str) File name/path for latest dd wiki xml exported file
+        :param ddwiki_exported_filepath: (str) File name/path for latest dd wiki xml exported file
         :return: None. Raise DXMLGeneratedError on error.
         """
-        if not os.path.exists(ddwiki_export_filepath):
-            raise DXMLGeneratedError('[DXM-30] Cannot find pre existing DD Wiki export file ' + ddwiki_export_filepath)
+        if not os.path.exists(ddwiki_exported_filepath):
+            raise DXMLGeneratedError('[DXM-30] Cannot find pre DD Wiki exported xml file ' + ddwiki_exported_filepath)
 
         # http://lxml.de/api/lxml.etree.XMLParser-class.html
         xml_tree.XMLParser(remove_blank_text=True, resolve_entities=False)
         try:
-            xml_root = xml_tree.parse(ddwiki_export_filepath)
+            xml_root = xml_tree.parse(ddwiki_exported_filepath)
         except OSError:
-            raise DXMLGeneratedError("[DXM-31] Cannot Open DD Wiki Input XML file: " + ddwiki_export_filepath)
+            raise DXMLGeneratedError("[DXM-31] Cannot Open DD Wiki Input XML file: " + ddwiki_exported_filepath)
         root = xml_root.getroot()
         resource_nodes = root.findall(".//StandardName")
         for name_node in resource_nodes:
@@ -136,26 +135,29 @@ class DictToXML:
         for name_node in lookupval_nodes:
             if name_node.text not in self.field_and_lookup_names:
                 self.field_and_lookup_names.append(name_node.text)
-        self.logger.info("[DXM-33] Note on Existing DD Wiki: {} fields found, {} lookup values found".format(len(resource_nodes), len(lookupval_nodes)))
+        self.logger.info("[DXM-33] Note on Existing DD Wiki: {} fields found, {} lookup values found".
+                         format(len(resource_nodes), len(lookupval_nodes)))
 
     def _read_ini_config_data(self):
-        """ Convert info from config.ini to internal dicts {}
+        """ Read [Resource-Descriptions] and [PageLinks] sections from config.ini to internal dicts {}
 
         :return: None
         """
+        # low: Add try/except while reading config.ini
         for desc in self.program_config_data['Resource-Descriptions']:
             # Add period to end of description so it looks like a sentence
             self.resource_descriptions[desc] = self.program_config_data['Resource-Descriptions'][desc] + '. '
         for desc in self.program_config_data['PageLinks']:
             self.page_links[desc] = self.program_config_data['PageLinks'][desc]
 
-    def _read_xml_config_file(self):
-        """ Read config file: DDWikiImportConfig.xml which describes xlsx input format and xml output format
+    def _read_xml_config_file(self, files_and_folders):
+        """ Read config file DDWikiImportConfig.xml which describes xlsx input format and xml output format
         .. Each xml 'Form' node has children describing the fields it can expect based on Confluence page
 
+        :param files_and_folders: (obj) object containing file locations
         :return: {dict} representation of config file. Raise DXMLGeneratedError on error.
         """
-        config_filename = self.working_directory + "\\DDWikiImportConfig.xml"
+        config_filename = os.path.join(files_and_folders.config_folder, "DDWikiImportConfig.xml")
         try:
             config_tree = xml_tree.parse(config_filename)
         except (IOError, xml_tree.XMLSyntaxError):
@@ -169,7 +171,7 @@ class DictToXML:
                 # .. The node.text is the dict key which is the field header text that appears in Confluence page.
                 if ele.tag == "Form":
                     config[ele.get("Name")] = {}  # Attribute 'Name' holds 'Form:' value from Confluence page
-                    config[ele.get("Name")]['Attributes'] = {'Sequence':0}
+                    config[ele.get("Name")]['Attributes'] = {'Sequence': 0}
                     for key, value in ele.items():
                         config[ele.get("Name")]['Attributes'][key] = value
                     for field in ele:
@@ -180,25 +182,28 @@ class DictToXML:
                         # .. ChildTagName (child name of field node if it is to have children nodes
                         # .. AutoCompute (value for XML is derived from computation and NOT the xlsx
                         config[ele.get("Name")][field.get("XMLName")] = {"Sequence": int(field.get("Sequence")),
-                                       "Value": field.text,
-                                       "ParsingCode": int(field.get("ParsingCode", int(self.PARSE_SIMPLE))),
-                                       "ChildTagName": field.get("ChildTagName"),
-                                       "AutoCompute": field.get("AutoCompute"),
-                                       "CollectionTemplate": field.get("CollectionTemplate"),
-                                       "DefaultValue":field.get("DefaultValue")}
+                                                                         "Value": field.text,
+                                                                         "ParsingCode":
+                                                                             int(field.get("ParsingCode", int(self.PARSE_SIMPLE))),
+                                                                         "ChildTagName": field.get("ChildTagName"),
+                                                                         "AutoCompute": field.get("AutoCompute"),
+                                                                         "CollectionTemplate": field.get(
+                                                                             "CollectionTemplate"),
+                                                                         "DefaultValue": field.get("DefaultValue")}
             except KeyError:
-                raise DXMLGeneratedError("[DXM-01] Ill formed XML in config file: " + str(config_filename).split('\\')[-1:][0])
+                raise DXMLGeneratedError("[DXM-01] Ill formed XML in config file: " +
+                                         str(config_filename).split('\\')[-1:][0])
 
         return config
 
-    def _add_date_node(self, parent_node, nodes_from_config, config_node_text, page_title, value):
-        """ Convert xlsx data into proper XML date format
+    def _add_date_node(self, parent_node, nodes_from_config, config_node_text, page_title, xlsx_values):
+        """ Convert xlsx date into XML date format
 
         :param parent_node: xml node # XML node to add this date element
         :param nodes_from_config: dict # config dictionary which describes how to handle all fields
         :param config_node_text: str # specific entry (key) in nodes_from_config. This will be XML tag
         :param page_title: str # The page title containing this date field
-        :param value: str or dict # Value to be inserted in XML file
+        :param xlsx_values: dict # Values from xlsx row to be inserted in XML file
         :return: (str) Date Value added to column - or None if error. Raise DXMLGeneratedError on error
         """
         if nodes_from_config[config_node_text]['AutoCompute'] == 'Y':
@@ -207,36 +212,35 @@ class DictToXML:
                 val = self.start_datetime_str
             else:
                 raise DXMLGeneratedError("[DXM-02] Cannot resolve AutoCompute Date '{0}' for page {1}".
-                        format(config_node_text, page_title))
+                                         format(config_node_text, page_title))
         else:
             # Get date from xlsx and format it for XML
             if nodes_from_config[config_node_text]['DefaultValue'] is not None:
                 # string format of "YYYYMMDDTHHMM"
                 val = nodes_from_config[config_node_text]['DefaultValue']
-                if val == "*":
+                if val == "*":  # Use today's date if entry is blank
                     default_date_str = datetime.datetime.now().strftime(self.DEFAULT_DATE_FORMAT)
                 else:
                     default_date_str = val
             else:
                 default_date_str = None
-            dte_err = "[DXM-03] Cannot find column/value for date field '{0}' in row/page '{1}'". \
-                            format(nodes_from_config[config_node_text]['Value'], page_title)
-            # Check if column exists in .xlsx
-            if nodes_from_config[config_node_text]['Value'] in value:
-                dte_val = value[nodes_from_config[config_node_text]['Value']]
-                # Assign default date if value in .xlsx is empty
-                if dte_val is None or (isinstance(dte_val, str) and len(dte_val)==0):
+            dte_err = "[DXM-03] Cannot find column/xlsx_values for date field '{0}' in row/page '{1}'". \
+                format(nodes_from_config[config_node_text]['Value'], page_title)
+            # Check if column exists in .xlsx row
+            if nodes_from_config[config_node_text]['Value'] in xlsx_values:
+                dte_val = xlsx_values[nodes_from_config[config_node_text]['Value']]
+                # Assign default date if xlsx_values in .xlsx is empty
+                if dte_val is None or (isinstance(dte_val, str) and len(dte_val) == 0):
                     if default_date_str is not None:
                         dte_val = default_date_str
                     else:
-                        # if cell empty and no default value, error
+                        # if cell empty and no default xlsx_values, error
                         raise DXMLGeneratedError(dte_err)
             else:
-                # Cell is missing must have default value present
                 if default_date_str is None:
-                    raise DXMLGeneratedError(dte_err)
+                    raise DXMLGeneratedError(dte_err)  # Cell is missing in xlsx and no default value
                 else:
-                    dte_val = default_date_str
+                    dte_val = default_date_str  # Cell is missing in xlsx, but default value stated
 
             if not isinstance(dte_val, datetime.date):
                 if not isinstance(dte_val, str):
@@ -249,7 +253,7 @@ class DictToXML:
                     dte_val = datetime.datetime.strptime(dte_val, self.XLSX_DATETIME_FORMAT)
                 except (ValueError, TypeError):
                     raise DXMLGeneratedError("[DXM-12] xlsx cell not in Date format. Column {0} in page {1}".
-                        format(config_node_text, page_title))
+                                             format(config_node_text, page_title))
             if dte_val.hour == 0 and dte_val.minute == 0:
                 val = dte_val.strftime(self.date_format_notime)
             else:
@@ -273,7 +277,7 @@ class DictToXML:
         return parent_node
 
     def _add_group_sub_nodes(self, node_tag, sub_node_tag, sub_node_value_str):
-        """ Create xml parent/child tags for Resource node Groups
+        """ Create xml parent/child tags for Resource node Groups defining how pages will appear in confluence nav panel
 
         :param node_tag (str):  parent of Resource 'Groups' Node tag (s.b. Groupings)
         :param sub_node_tag (str): child of node_tag (s.b. 'Group')
@@ -281,50 +285,41 @@ class DictToXML:
         :return node_tag xml:
         """
         parent_node = xml_tree.Element(node_tag)
-        cnt = 0
-        for sub_value_str in sub_node_value_str.split('_'):
-            if len(sub_value_str) > 0:
-                if cnt == 0:
-                    if ' Resource' in sub_value_str:
-                        sub_value_str = sub_value_str.replace(' Resource','')
-                    elif ' Collection' in sub_value_str:
-                        sub_value_str = sub_value_str.replace(' Collection', '')
-                    # page_links does not contain suffix ' Resource' or ' Collections'
-                    if sub_value_str in self.page_links:
-                        page_link = self.page_links[sub_value_str]
-                    else:
-                        page_link = sub_value_str + ' Resource'
-                else:
-                    page_link = sub_value_str
-                cnt += 1
-                # Link and value should be the same
-                sub_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link': page_link})
-                sub_node.text = page_link
+        for sub_value_str in sub_node_value_str:
+            if sub_value_str in self.page_links:
+                page_link = self.page_links[sub_value_str]
+            else:
+                page_link = sub_value_str
+            sub_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link': page_link})
+            sub_node.text = page_link
         return parent_node
 
-    def _add_linked_sub_nodes(self, node_tag, sub_node_tag, tag_value):
-        """ Translate xlsx columns into appropriate text for Lookup page links
+    def _add_linked_sub_nodes(self, node_tag, sub_node_tag, tag_value, page_title):
+        """ Translate xlsx columns into appropriate text for xml Lookup page links
 
         :param node_tag (str): parent of Resource Property Types Node tag (s.b. Groupings)
         :param sub_node_tag (str): child tag (s.b. 'Class)
         :param sub_node_value_str (str): xlsx column names separated by commas
         :param xlsx_values (str): Child node values separated by comma
+        :param page_title (str): Current ddwiki page being processed (needed for error reporting)
         :return: None. Raise DXMLGeneratedError on error
         """
         parent_node = xml_tree.Element(node_tag)
         if tag_value is None:
-            raise DXMLGeneratedError("[DXM-15] Found Null/Empty Value for Reference within {}".format(parent_node.tag))
-        for ref_text in tag_value.replace(' ','').split(','):
+            raise DXMLGeneratedError("[DXM-45] Found Null/Empty Value for Reference within column '{}' on page '{}'".
+                                     format(parent_node.tag, page_title))
+        for ref_text in tag_value.replace(' ', '').split(','):
             try:
-                new_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link':self.page_links[ref_text]})
+                new_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link': self.page_links[ref_text]})
             except KeyError:
-                raise DXMLGeneratedError("[DXM-14] Cannot create link for ref '{}' within col {}. Check section PageLinks in config.ini".
-                                         format(ref_text, parent_node.tag))
+                err_msg = "[DXM-14] Cannot create link for ref '{}' within column '{}' on page '{}'. " \
+                          "Check section PageLinks in config.ini"
+                raise DXMLGeneratedError(err_msg.format(ref_text, parent_node.tag, page_title))
             new_node.text = ref_text
         return parent_node
 
     def _add_reference_sub_nodes(self, node_tag, sub_node_tag, tag_value):
-        """ Translate xlsx columns into appropriate text for reference page links
+        """ Translate xlsx columns into appropriate text for xml reference tag page links
 
         :param node_tag (str): parent of Resource Property Types Node tag (s.b. Groupings)
         :param sub_node_tag (str): child tag (s.b. 'Class)
@@ -335,9 +330,9 @@ class DictToXML:
         parent_node = xml_tree.Element(node_tag)
         if tag_value is None:
             raise DXMLGeneratedError("[DXM-37] Found Null/Empty Value for Reference within {}".format(parent_node.tag))
-        for ref_text in tag_value.replace(' ','').split(','):
+        for ref_text in tag_value.replace(' ', '').split(','):
             # low: Reference column values that are not unique page names will not work.
-            new_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link':ref_text + ' Field'})
+            new_node = xml_tree.SubElement(parent_node, sub_node_tag, {'Link': ref_text + ' Field'})
             # Adding ' Field' to visual field for clarity
             new_node.text = ref_text + ' Field'
         return parent_node
@@ -367,22 +362,16 @@ class DictToXML:
             try:
                 suffix = full_page_title.rsplit(' ', 1)[1]  # Get last word in title
             except IndexError:
-                raise DXMLGeneratedError("[DXM-44] Index Error on creating page title with '{}'".format(full_page_title))
-        if suffix in self.SPECIAL_PAGE_SUFFIX: # Don't check special page names
+                raise DXMLGeneratedError("[DXM-44] Index Error creating page title with '{}'".format(full_page_title))
+        if suffix in self.SPECIAL_PAGE_SUFFIX:  # Don't check special page names
             return full_page_title
         if page_template == 'LookupValueTemplate':
             item_name = full_page_title
             suffix = ''
         else:
-            item_name = full_page_title.split(' ')[0] # Get 1st word
+            item_name = full_page_title.split(' ')[0]  # Get 1st word
         # See if the Name exists
         if item_name in self.field_and_lookup_names:
-            """
-            if ' ' in page_title and 'Lookup' not in page_template:
-                page_title = page_title.replace(' ', ' (' + dup_qualifier + ') ', 1)
-            else:
-                page_title = page_title + ' (' + dup_qualifier + ')'
-            """
             page_title = item_name + ' (' + dup_qualifier + ') ' + suffix
         else:
             self.field_and_lookup_names.append(item_name)
@@ -397,41 +386,40 @@ class DictToXML:
         :return: None
         """
         # A collection cannot have a lookup
-        if 'Collection' in this_node.attrib['Page_Template']:
+        if 'Collection' in this_node.attrib['Page_Template']:  # Collection pages have same format
             return
-        if 'Prop' in this_node.attrib['Page_Template']:
+        if 'Prop' == this_node.attrib['Page_Template'][0:4]:
             this_node.attrib['Page_Template'] = self.PROP_NOLOOKUP_TEMPLATE
         elif 'Reference' in this_node.attrib['Page_Template']:
             this_node.attrib['Page_Template'] = self.REFERENCE_NOLOOKUP_TEMPLATE
         else:
             this_node.attrib['Page_Template'] = self.OTHER_NOLOOKUP_TEMPLATE
 
-    def _add_xml_nodes(self, parent_node, nodes_from_config, value='', optional_page_title=None,
+    def _add_xml_nodes(self, parent_node, nodes_from_config, value='', other_page_title=None,
                        replace_labels=None, resource_name=''):
         """ Add nodes to xml output based on xml config file (DDWikiImportConfig.xml)
 
         :param parent_node (xml node): XML node to add this date element
         :param nodes_from_config (dict): config dictionary which describes how to handle all fields
         :param value (str or dict): Value (autocompute - str) or from xlsx (dict)
-        :param optional_page_title (str): Preferred Page Title
+        :param other_page_title (str): Preferred Page Title
         :param replace_labels (str): optional labels separated by commas
         :param resource_name: optional String used to make page title unique
         :return (xml node): Node added to XML structure and children. Raise DXMLGeneratedError on error
         """
-        # RGG: added strip() on 3/16/2017
-        if optional_page_title is None:
+        if other_page_title is None:
             page_title = nodes_from_config['Attributes']['Page_Title'].strip()
         else:
-            page_title = optional_page_title.strip()
-        # priority: Add atts after loop as Page_Template might change
-        attrs = {'Page_Template':nodes_from_config['Attributes']['Page_Template'],
-                'Page_Title':self._make_page_title(page_title,
-                                                   resource_name, nodes_from_config['Attributes']['Page_Template'])}
+            page_title = other_page_title.strip()
+        # todo: Possibly create attribute after loop. Page_Template might change within loop (need sample case for this)
+        attrs = {'Page_Template': nodes_from_config['Attributes']['Page_Template'],
+                 'Page_Title': self._make_page_title(page_title, resource_name,
+                                                     nodes_from_config['Attributes']['Page_Template'])}
         prime_node = xml_tree.SubElement(parent_node, nodes_from_config['Attributes']['Node_Type'], attrib=attrs)
-        sorted_nodes = self._sort_nodes(nodes_from_config)  # a list [0]=sort#; [1]=fieldname
-        # Get xml nodes to write from config file DDWikiImportConfig.xml (read into dict)
+        sorted_nodes = self._sort_nodes(nodes_from_config)  # Sort by nodes_from_config Sequence attribute
+        # Loop through xml nodes in config file DDWikiImportConfig.xml to create final IOI xml nodes for output
         for config_node_list in sorted_nodes:
-            config_node_text = config_node_list[1]
+            config_node_text = config_node_list[1]  # value of XMLName attribute from DDWikiImportConfig.xml
             # Nodes attributes from XML are placed into the dict{} (attributes already added above)
             if config_node_text != 'Attributes' and config_node_text not in self.IGNORE_FIELDS:
                 if nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_LABEL:  # (1) Parse Child Nodes
@@ -440,27 +428,29 @@ class DictToXML:
                         lbls = nodes_from_config[config_node_text]['Value']
                     else:
                         lbls = replace_labels
-                    prime_node.append(self._add_label_sub_nodes(node_tag = config_node_text,
-                                                    sub_node_tag = nodes_from_config[config_node_text]['ChildTagName'],
-                                                    sub_node_value_str = lbls))
+                    prime_node.append(self._add_label_sub_nodes(node_tag=config_node_text,
+                                                                sub_node_tag=nodes_from_config[config_node_text][
+                                                                    'ChildTagName'],
+                                                                sub_node_value_str=lbls))
                 # (0) Grab value from xlsx dict
                 elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_SIMPLE:
+                    # val = page_title.replace(' ', '_').lower()
                     if nodes_from_config[config_node_text]['AutoCompute'] == 'Y':
                         if config_node_text == 'lookupfield_ref':
                             val = page_title.replace(' ', '_').lower()
                         elif config_node_text == 'Resource_Description':
                             try:
                                 # Add ' Collection to end for Collections only. Otherwise considered resource
-                                if ' Collection' in optional_page_title:
-                                    val = self.resource_descriptions[optional_page_title]
+                                if ' Collection' in other_page_title:
+                                    val = self.resource_descriptions[other_page_title]
                                 else:
-                                    val = self.resource_descriptions[optional_page_title.split(' ')[0]]
+                                    val = self.resource_descriptions[other_page_title.split(' ')[0]]
                             except KeyError:
                                 raise DXMLGeneratedError("[DXM-28] Cannot find resource description for '{}'".
-                                                   format(resource_name))
+                                                         format(resource_name))
                         else:
-                            raise DXMLGeneratedError("[DXM-04] Cannot resolve AutoCompute for column '{0}' in page '{1}".
-                                              format(config_node_text, page_title))
+                            raise DXMLGeneratedError("[DXM-04] Cannot resolve AutoCompute for col '{0}' in page '{1}".
+                                                     format(config_node_text, page_title))
                     else:
                         # Get value from xlsx (as translated into dict)
                         if type(value) == dict:
@@ -475,9 +465,9 @@ class DictToXML:
                                     val = nodes_from_config[config_node_text]['DefaultValue']
                                 else:
                                     raise DXMLGeneratedError("[DXM-05] Missing column '{0}' in row/page {1}".
-                                        format(config_node_text, page_title))
+                                                             format(config_node_text, page_title))
                         else:
-                            val = value # Value as passed as parameter
+                            val = value  # Value as passed as parameter
                     new_node = xml_tree.SubElement(prime_node, config_node_text)
                     if val is None:
                         new_node.text = ''
@@ -496,10 +486,10 @@ class DictToXML:
                         raise DXMLGeneratedError(
                             "[DXM-40] Unable to Find Column '{}' in spreadsheet for page:{}".
                                 format(nodes_from_config[config_node_text]['Value'], page_title))
-
                     prime_node.append(self._add_linked_sub_nodes(node_tag=config_node_text,
                                                     sub_node_tag=nodes_from_config[config_node_text]['ChildTagName'],
-                                                    tag_value=value[nodes_from_config[config_node_text]['Value']]))
+                                                    tag_value=value[nodes_from_config[config_node_text]['Value']],
+                                                                 page_title=page_title))
                 # (5) Resource field 'Group' with Links
                 elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_GROUPS:
                     prime_node.append(self._add_group_sub_nodes(config_node_text,
@@ -512,35 +502,34 @@ class DictToXML:
                     try:
                         val = value[nodes_from_config[config_node_text]['Value']]
                     except KeyError:
-                        raise DXMLGeneratedError(
-                            "[DXM-38] Unable to Find Column '{}' in spreadsheet for page:{}".
-                                format(config_node_text, page_title))
+                        raise DXMLGeneratedError("[DXM-38] Unable to Find Column '{}' in spreadsheet for page:{}".
+                                                 format(config_node_text, page_title))
 
-                    # The word 'List' in Lookup field means we have a Lookup field
+                    # The word 'List' in Simple Data Type means we have a Lookup field (i.e. String List, Single)
                     if 'List' in value[nodes_from_config['Simple_Data_Type']['Value']]:
                         # Possible comment in Lookup field signaled by '<'
+                        if val is None or len(val) == 0:
+                            val = '<Not Defined>'
                         if len(val) > 0 and val[0] != '<':
                             if val[-8:] != ' Lookups':
                                 val += ' Lookups'       # Lookup field is title + ' Lookups'
-                            attrib = {'Link':val}
-                        if len(val) == 0:
-                            val = '<Not Defined>'
+                            attrib = {'Link': val}
                         if val[0] == '<':           # Do NOT use lookup template when comment present
                             atr = prime_node.attrib['Page_Template']
                             # Not sure if this logic is used anymore
                             atr_idx = atr.find('Resource')
                             if atr_idx < 0:
-                                raise DXMLGeneratedError("[DXM-32] Expecting text 'Resource' in column '{}' field '{}' ".
+                                raise DXMLGeneratedError("[DXM-32] Expecting text 'Resource' in col '{}' field '{}' ".
                                                          format(config_node_text, page_title))
                             else:
                                 prime_node.attrib['Page_Template'] = atr[0:atr_idx] + 'NoLookup' + atr[atr_idx:]
                     else:
                         # Non lookups fields use page template PropNoLookupResourceTemplate or
                         # ... OtherNoLookupResourceTemplate
-                        # todo: Add warning if val is not '<n/a>' or blank
                         self._adjust_resource_page_template(this_node=prime_node)
                         if val != '<n/a>' and val is not None:
-                            self.logger.warning("[DXM-41] Lookup Value should be n/a for col '{}' on page '{}' in resource {}".
+                            self.logger.warning("[DXM-41] Lookup Value should be n/a for col '{}' on page '{}'" 
+                                                "in resource {} due to SimpleDataType".
                                                 format(config_node_text, page_title, resource_name))
                         val = '<n/a>'  # Force n/a for non lookups w/no comments
                     new_node = xml_tree.SubElement(prime_node, config_node_text, attrib)
@@ -572,7 +561,7 @@ class DictToXML:
                         # If last 8 chars has lookups .. then no need to add
                         if val[-8:] != ' Lookups':
                             val += ' Lookups'
-                        attrib = {'Link':val}
+                        attrib = {'Link': val}
                     new_node = xml_tree.SubElement(prime_node, config_node_text, attrib)
                     new_node.text = val
                 elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_LOOKUPID:
@@ -594,7 +583,7 @@ class DictToXML:
                     # (3/30/2017) lookup_fieldid_value MUST be computed and not taken from spreadsheet
                     lookup_fieldid_value = None
                     if attrs['Page_Template'] == 'LookupFieldTemplate':
-                        lookup_field_name = attrs['Page_Title'].replace(' Lookups','')
+                        lookup_field_name = attrs['Page_Title'].replace(' Lookups', '')
                     else:
                         lookup_field_name = value[nodes_from_config['Lookup_Field']['Value']]
                         # lookup_fieldid_value = value[nodes_from_config[config_node_text]['Value']]
@@ -622,26 +611,31 @@ class DictToXML:
                                                     tag_value=value[nodes_from_config[config_node_text]['Value']]))
                     # xlsx correction - Force 'n/a' for non lookup fields
                 elif nodes_from_config[config_node_text]['ParsingCode'] == self.PARSE_FLD_COLLECTION:
-                    val = value[nodes_from_config[config_node_text]['Value']]
+                    try:
+                        val = value[nodes_from_config[config_node_text]['Value']]
+                    except KeyError:
+                        raise DXMLGeneratedError(
+                            "[DXM-46] Cannot find 'Collection' column for page '{}'".format(page_title))
                     # Remove word collection if present in xlsx so we match w/key in config.ini
                     if val is not None:
                         val = val.replace(' Collection', '')
                         if val not in self.page_links:
                             raise DXMLGeneratedError(
-                                "[DXM-36] Cannot create link for collection column value '{}' within col {}. Check section PageLinks in config.ini".
+                                "[DXM-36] Cannot create link for collection column value '{}' within col {}. "
+                                "Check section PageLinks in config.ini".
                                 format(val, parent_node.tag))
-                        attrib = {'Link':self.page_links[val]}
+                        attrib = {'Link': self.page_links[val]}
                         # Replace prime_node['Page_Template'] with correct Collection named template
                         try:
-                            prime_node.attrib['Page_Template'] = nodes_from_config[config_node_text]['CollectionTemplate']
+                            prime_node.attrib['Page_Template'] = \
+                                nodes_from_config[config_node_text]['CollectionTemplate']
                         except KeyError:
-                            raise DXMLGeneratedError("[DXM-39] No 'CollectionTemplate' attrib in DDWikiImportConfig.xml {}-{}"
+                            raise DXMLGeneratedError("[DXM-39] No 'CollectionTemplate' attr in DDWikiImportConfig {}-{}"
                                                      .format(val, parent_node.tag))
                         new_node = xml_tree.SubElement(prime_node, config_node_text, attrib)
-                        # new_node.text = val
                         # The node value and Link attribute are the same (5/24/2017)
                         new_node.text = self.page_links[val]
-                else: #
+                else:
                     # self.logger.warning("[E100] No logic for parse code {0} on page '{1} ".
                     #            format(nodes_from_config[config_node_text]['ParsingCode'], page_title))
                     if self.report_warning:
@@ -661,7 +655,7 @@ class DictToXML:
         self._add_lookup_fieldid(lookup_field_name)
 
         if (self.max_lookupids[lookup_field_name] + 1) % 1000 > 998:
-             return -1  # Program can only accomodate max 999 lookup values
+            return -1  # Program can only accomodate max 999 lookup values
         self.max_lookupids[lookup_field_name] += 1
         return self.max_lookupids[lookup_field_name]
 
@@ -675,9 +669,10 @@ class DictToXML:
         self._add_lookup_fieldid(lookup_field_name)
         try:
             return self.max_lookupids[lookup_field_name] - (self.max_lookupids[lookup_field_name] % 1000)
-        except TypeError as e:
+        except TypeError:
             print("? Issue with " + lookup_field_name)
             raise DXMLGeneratedError("[DXM-25] Computing max field lookupid issue witn {}.".format(lookup_field_name))
+
     def _compute_recordid(self, resource_name):
         """ Compute max recordid for the lookup value.  Each lookupfield id is incremented by 1000.
         .. Hence (in this program) the max # of lookup values in a lookup field is 1000
@@ -689,11 +684,12 @@ class DictToXML:
         self._add_recordid(resource_name)
 
         if (self.max_recordids[resource_name] + 1) % 1000 > 999:
-             raise DXMLGeneratedError("[DXM-29] This program only allows a max of 999 fields in resouce {}.".
-                                      format(resource_name))
+            raise DXMLGeneratedError("[DXM-29] This program only allows a max of 999 fields in resouce {}.".
+                                     format(resource_name))
 
         self.max_recordids[resource_name] += 1
         return self.max_recordids[resource_name]
+
     def _add_lookup_fieldid(self, lookup_field_name):
         """ If the lookup field doesn't already exist create new lookup field id#
 
@@ -706,7 +702,7 @@ class DictToXML:
             self.max_lookupids[lookup_field_name] = self.max_id
             self.logger.info(
                 "[DXM-43] Creating Base Max Lookup Field ID for '{}' with value {}".
-                        format(lookup_field_name, self.max_id))
+                    format(lookup_field_name, self.max_id))
 
     def _add_recordid(self, resource_name):
         """ If the resource name doesn't already exist create new field id#
@@ -720,9 +716,10 @@ class DictToXML:
             self.max_recordids[resource_name] = self.max_id
             self.logger.info(
                 "[DXM-42] Creating Base Max RecordID for resource '{}' with value {}".
-                        format(resource_name, self.max_id))
+                    format(resource_name, self.max_id))
 
-    def _create_resource_nodes(self, parent_xml_node, sheet_tab_name, resource_name, group_name, level_key, item_form_name):
+    def _create_resource_nodes(self, parent_xml_node, sheet_tab_name, resource_name,
+                               group_name, level_key, config_form_name):
         """ Build XML Resource nodes. Tree structure of nodes are laid out in self.resource_tree
 
         :param parent_xml_node: Parent node for new node created
@@ -730,7 +727,7 @@ class DictToXML:
         :param resource_name (str): Name of top resource as it appears in output xml
         :param group_name (str): Name of group node (top resource node has tag name of 'Group')
         :param level_key (str): Where node belongs from xlsx 'Group' column. (Levels separated by '_'?)
-        :param item_form_name (str): Name attribute value in DDWikiImportConfig.xml which defines fields that apply
+        :param config_form_name (str): Name attribute value in DDWikiImportConfig.xml which defines fields that apply
         :return: None. Raise DXMLGeneratedError on error
         """
         # Get info on Node. This is a treelib variable
@@ -749,9 +746,9 @@ class DictToXML:
                 self.xml_config_data["Group"]['Attributes']['Page_Title'].replace('[[Name]]', group_name)
         # Add Group or Resource Node (Items are underneath)
         this_level_xml_node = self._add_xml_nodes(parent_node=parent_xml_node,
-                                              nodes_from_config=self.xml_config_data[node_type],
-                                              optional_page_title=page_title,
-                                              resource_name=resource_name)
+                                                  nodes_from_config=self.xml_config_data[node_type],
+                                                  other_page_title=page_title,
+                                                  resource_name=resource_name)
         # Add item nodes underneath Group or Resource node as added above
         if level_key in self.spreadsheet_data['Resources'][sheet_tab_name]:
             # self.spreadsheet_data['Resources'][resource_name][level_key] returns a list [] of dict items
@@ -761,10 +758,10 @@ class DictToXML:
             for item_node in sorted_item_nodes:
                 item_name = item_node[self.STANDARD_NAME_COLUMN]
                 page_title = \
-                    self.xml_config_data[item_form_name]['Attributes']['Page_Title'].replace('[[Name]]', item_name)
+                    self.xml_config_data[config_form_name]['Attributes']['Page_Title'].replace('[[Name]]', item_name)
                 new_node = self._add_xml_nodes(this_level_xml_node,
-                                               nodes_from_config=self.xml_config_data[item_form_name],
-                                               optional_page_title=page_title,
+                                               nodes_from_config=self.xml_config_data[config_form_name],
+                                               other_page_title=page_title,
                                                value=item_node,
                                                resource_name=resource_name)
                 # Add additional labels
@@ -786,19 +783,19 @@ class DictToXML:
         try:
             child_nodes = self.resource_tree.children(level_key)
         except NodeIDAbsentError:
-            raise DXMLGeneratedError("[DXM-07] Unable to find value '{0}' in xlsx 'Group' column for resource {1}". \
-                                  format(level_key.replace('_',''), resource_name))
+            raise DXMLGeneratedError("[DXM-07] Unable to find value '{0}' in xlsx 'Group' column for resource '{1}'".
+                                     format(level_key, resource_name))
 
         for child_node in child_nodes:
-            self._create_resource_nodes(parent_xml_node= this_level_xml_node,
-                                               sheet_tab_name=sheet_tab_name,
-                                               resource_name=resource_name,
-                                               group_name=child_node.tag,
-                                               level_key=level_key + '_' + child_node.tag,
-                                               item_form_name = item_form_name)
+            self._create_resource_nodes(parent_xml_node=this_level_xml_node,
+                                        sheet_tab_name=sheet_tab_name,
+                                        resource_name=resource_name,
+                                        group_name=child_node.tag,
+                                        level_key=level_key + ',' + child_node.tag,
+                                        config_form_name= config_form_name)
 
     def _build_resource_tree(self, sheet_tab_name):
-        """ Create a tree structure (using treelib) for a specific resource to mimic final output xml structure
+        """ Create a tree structure (using treelib) for resource to mimic final output DD Wiki xml structure
 
         :param sheet_tab_name (str):
         :return: None. Raise DXMLGeneratedError on error
@@ -811,59 +808,64 @@ class DictToXML:
                                      format(sheet_tab_name))
 
         for key_node in resource_levels:
-            # xls resource structure is in the 'Group' column with each level separated by a ','
-            # Groups are separated by '_'
-            if key_node[0] == '_':
-                group_list = key_node.split('_')[1:]
-            else:
-                group_list = key_node.split('_')
             node_id = ''
+            # items w/same key_node will always have same value in 'Groups'
+            group_list = self.spreadsheet_data['Resources'][sheet_tab_name][key_node][0]['Groups']
             parent_id = None
             for group in group_list:
-                node_id += '_' + group
+                if len(node_id) == 0:
+                    node_id = group
+                else:
+                    node_id += ',' + group
                 this_node = self.resource_tree.get_node(node_id)
                 if this_node is None:
                     try:
                         self.resource_tree.create_node(group,node_id,parent_id)
-                    except MultipleRootError: # MultipleRootError:
+                    except MultipleRootError:  # MultipleRootError:
                         raise DXMLGeneratedError("[DXM-08] Group name '{0}' from xlsx in resource {1} not recognized".
                                                  format(node_id, sheet_tab_name))
-
                 parent_id = node_id
         # self.resource_tree.show() - debug
+
+    def _get_item_form_name(self, resource_name):
+        """ Determine correct 'Form Name' in DDWikiImportConfig.xml to understand which fields are required in xlsx
+
+        :param resource_name: Name of resource
+        :return: (str) Value of attribute 'Name' in tag Form within DDWikiImportConfig.xml
+        """
+        try:
+             full_resource_name = self.page_links[resource_name]
+        except KeyError:
+            raise DXMLGeneratedError("[DXM-47] Cannot find resource '{}' in config.ini [PageLinks] section".
+                                     format(resource_name))
+        if full_resource_name == 'Property Resource':
+            return "PropResourceField"
+        elif 'Collection' == full_resource_name.split()[-1]:
+            return "CollectionResourceField"
+        elif full_resource_name[0:6] == 'Lookup':
+            return "LookupValue"
+        else:
+            return "OtherResourceField"
 
     def _create_resources(self):
         """ Build all XML nodes relating to Resources. Called when class is initialized
 
         :return (boolean): True/False on successful execution
         """
-        # priority: Parse 'Collection' type fields by looking at data type .. NOT having in separate .xlsx tab
         # Resource sheets to grab from xlsx defined in config.ini
         for sheet_tab_name in self.program_config_data['ResourceSheets']:
             resource_name = self.program_config_data['ResourceSheets'][sheet_tab_name]
+            self.logger.info("Processing Input Lookup Worksheet: '{}' for resource: '{}'".
+                             format(sheet_tab_name, resource_name))
             # Build a tree structure for each resource which dups how the XML will be shaped
             self._build_resource_tree(sheet_tab_name=sheet_tab_name)
 
-            # Identify Form Name in DDWikiImportConfig.xml file which defines fields that apply for a tab
-            level_key = '_' + resource_name + ' Resource'
-            if resource_name == 'Property':
-                item_form_name = 'PropResourceField'
-            elif ' Collection' in sheet_tab_name:
-                # A Reference resource is special and refers back to a collection
-                item_form_name = 'CollectionResourceField'
-                level_key = '_' + resource_name + ' Collection'
-            else:
-                # A NON property resource can be associated with 2 different templates
-                item_form_name = 'OtherResourceField'
-
-
-            self._create_resource_nodes(parent_xml_node= self.xml_root,
-                                               sheet_tab_name=sheet_tab_name,
-                                               resource_name=resource_name,
-                                               group_name=resource_name,
-                                               level_key=level_key,
-                                               item_form_name = item_form_name)
-
+            self._create_resource_nodes(parent_xml_node=self.xml_root,
+                                        sheet_tab_name=sheet_tab_name,
+                                        resource_name=resource_name,
+                                        group_name=resource_name,
+                                        level_key=resource_name,
+                                        config_form_name=self._get_item_form_name(resource_name))
         return True
 
     def _create_lookups(self):
@@ -871,6 +873,7 @@ class DictToXML:
 
         :return: None
         """
+        self.logger.info("Processing Input Lookup Values")
         # Create top node for Lookups
         top_lookup_node = self._add_xml_nodes(self.xml_root,
                                               nodes_from_config=self.xml_config_data["LookupTopIndex"],
@@ -883,7 +886,7 @@ class DictToXML:
                                                                                                       letter_key)
             top_group_index_node = self._add_xml_nodes(top_lookup_node,
                                                        nodes_from_config=self.xml_config_data["LookupIndexAlpha"],
-                                                       optional_page_title=page_title,
+                                                       other_page_title=page_title,
                                                        resource_name='Lookup Index')
             top_lookup_node.append(top_group_index_node)
             # Create a group node for each lookup field
@@ -903,8 +906,8 @@ class DictToXML:
                 lookup_field_node = self._add_xml_nodes(top_lookup_node,
                                                         nodes_from_config=self.xml_config_data["LookupIndexField"],
                                                         value=val,
-                                                        optional_page_title=page_title,
-                                                        replace_labels = labels,
+                                                        other_page_title=page_title,
+                                                        replace_labels=labels,
                                                         resource_name='Lookup Field')
                 top_group_index_node.append(lookup_field_node)
                 # Add lookup Values
@@ -912,12 +915,11 @@ class DictToXML:
                     page_title = lookup_value['LookupValue']
                     lookup_value_node = self._add_xml_nodes(lookup_field_node,
                                                             nodes_from_config=self.xml_config_data["LookupValue"],
-                                                            value = lookup_value,
-                                                            optional_page_title=page_title,
+                                                            value=lookup_value,
+                                                            other_page_title=page_title,
                                                             resource_name=lookup_field[0])
 
                     lookup_field_node.append(lookup_value_node)
-
 
     def write_xml_file(self, result_xml_filepath):
         """ Write IOI Import File to disk
@@ -977,13 +979,12 @@ class DictToXML:
                     if line[0:2] != '**':
                         sline = line.split()
                         if len(sline) > 0:
+                            # Deprecated fields/lookups have more than 5 words
                             if sline[0] == 'Deprecated':
                                 if sline[1] == 'Fields':
                                     del sline[1]
                                 elif sline[1] == 'Lookup':
                                     sline[1:3] = []
-
-                            # bug: Deprecated lines in max have 6 fields ('Fields'/'Lookup') not concatenated
                             if len(sline) != 5:
                                 raise DXMLGeneratedError("[DXM-23] Max ID File expecting 5 cols per row for {} in:{}".
                                                          format(sline[0], max_id_file))
@@ -994,15 +995,9 @@ class DictToXML:
                                 raise DXMLGeneratedError("[DXM-24] Max ID File has illegal num for record maxid: "
                                                          + sline[0])
                             if val > self.max_id:
-                                self.max_id  = val
+                                self.max_id = val
 
         if len(self.max_recordids) == 0:
             raise DXMLGeneratedError("[DXM-26] No recordid entries found in file " + max_id_file)
         if len(self.max_lookupids) == 0:
             raise DXMLGeneratedError("[DXM-09] No lookupid entries found in file " + max_id_file)
-
-
-if __name__ == "__main__":
-    in_file = r"C:\Users\bobg\Documents\Technology\Programming\Python\Projects\IOIImport\files\stat_warning_log.txt"
-    # max_lookupids = get_max_lookupids(in_file)
-    print("! Testing Ended")

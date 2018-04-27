@@ -1,0 +1,1607 @@
+<wikiimport XMLCreateDate="20180425T1026" XlsxDate="20180420T0000">
+  <Group Page_Template="ResourceTemplate" Page_Title="Property Resource">
+    <Resource_Description>The Property Resource includes fields commonly used in a Multiple Listing Service listing. </Resource_Description>
+    <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+    <Labels>
+      <Label>page_resource</Label>
+      <Label>page_dynamic</Label>
+    </Labels>
+    <Group Page_Template="GroupTemplate" Page_Title="Structure Group">
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Labels>
+        <Label>page_group</Label>
+        <Label>page_dynamic</Label>
+      </Labels>
+      <Group Page_Template="GroupTemplate" Page_Title="Performance Group">
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Labels>
+          <Label>page_group</Label>
+          <Label>page_dynamic</Label>
+        </Labels>
+        <Group Page_Template="GroupTemplate" Page_Title="GreenVerification Group">
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Labels>
+            <Label>page_group</Label>
+            <Label>page_dynamic</Label>
+          </Labels>
+          <Item Page_Template="PropNoLookupResourceTemplate" Page_Title="GreenBuildingVerification (Property) Field">
+            <Field_Name_Standard_Name>GreenBuildingVerification</Field_Name_Standard_Name>
+            <Definition>A collection of verifications or certifications awarded to a new or pre-existing residential or commercial structure. For example: LEED, Energy Star, ICC-700.  The collection includes information about the type, year, rating and other details about the awarded performance verification.</Definition>
+            <Groupings>
+              <Group Link="Property Resource">Property Resource</Group>
+              <Group Link="Structure">Structure</Group>
+              <Group Link="Performance">Performance</Group>
+              <Group Link="GreenVerification">GreenVerification</Group>
+            </Groupings>
+            <Simple_Data_Type>Collection</Simple_Data_Type>
+            <Suggested_Maximum_Length></Suggested_Maximum_Length>
+            <Synonyms>GreenBuildingCertification, GreenBuildingRating</Synonyms>
+            <Element_Status>Proposed</Element_Status>
+            <BEDES></BEDES>
+            <Field_Certification_Level>Platinum</Field_Certification_Level>
+            <Record_Identifier>101012</Record_Identifier>
+            <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+            <Lookup>&lt;n/a&gt;</Lookup>
+            <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+            <Repeating_Element>No</Repeating_Element>
+            <Property_Types>
+              <Class Link="Residential Property Type">RESI</Class>
+              <Class Link="Residential Lease Property Type">RLSE</Class>
+              <Class Link="Residential Income Property Type">RINC</Class>
+              <Class Link="Mobile Home Property Type">MOBI</Class>
+              <Class Link="Farm Land Property Type">FARM</Class>
+              <Class Link="Commercial Sale Property Type">COMS</Class>
+              <Class Link="Commercial Lease Property Type">COML</Class>
+            </Property_Types>
+            <Payloads></Payloads>
+            <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+            <Revised_Date>Apr 25 2018</Revised_Date>
+            <Added_in_Version>1.6.0</Added_in_Version>
+            <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+            <Lookup_Values/>
+            <Labels>
+              <Label>page_item</Label>
+              <Label>page_dynamic</Label>
+              <Label>field_status_proposed</Label>
+              <Label>prop_resi</Label>
+              <Label>prop_rlse</Label>
+              <Label>prop_rinc</Label>
+              <Label>prop_mobi</Label>
+              <Label>prop_farm</Label>
+              <Label>prop_coms</Label>
+              <Label>prop_coml</Label>
+            </Labels>
+          </Item>
+        </Group>
+      </Group>
+      <Group Page_Template="GroupTemplate" Page_Title="Rooms Group">
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Labels>
+          <Label>page_group</Label>
+          <Label>page_dynamic</Label>
+        </Labels>
+        <Item Page_Template="PropNoLookupResourceTemplate" Page_Title="Rooms (Property) Field">
+          <Field_Name_Standard_Name>Rooms</Field_Name_Standard_Name>
+          <Definition>A collection of types of rooms and details/features about the given room.</Definition>
+          <Groupings>
+            <Group Link="Property Resource">Property Resource</Group>
+            <Group Link="Structure">Structure</Group>
+            <Group Link="Rooms">Rooms</Group>
+          </Groupings>
+          <Simple_Data_Type>Collection</Simple_Data_Type>
+          <Suggested_Maximum_Length></Suggested_Maximum_Length>
+          <Synonyms></Synonyms>
+          <Element_Status>Proposed</Element_Status>
+          <BEDES></BEDES>
+          <Field_Certification_Level>Platinum</Field_Certification_Level>
+          <Record_Identifier>101013</Record_Identifier>
+          <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+          <Lookup>&lt;n/a&gt;</Lookup>
+          <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+          <Repeating_Element>No</Repeating_Element>
+          <Property_Types>
+            <Class Link="Residential Property Type">RESI</Class>
+            <Class Link="Residential Lease Property Type">RLSE</Class>
+            <Class Link="Mobile Home Property Type">MOBI</Class>
+            <Class Link="Farm Land Property Type">FARM</Class>
+          </Property_Types>
+          <Payloads></Payloads>
+          <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+          <Revised_Date>Apr 25 2018</Revised_Date>
+          <Added_in_Version>1.6.0</Added_in_Version>
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Lookup_Values/>
+          <Labels>
+            <Label>page_item</Label>
+            <Label>page_dynamic</Label>
+            <Label>field_status_proposed</Label>
+            <Label>prop_resi</Label>
+            <Label>prop_rlse</Label>
+            <Label>prop_mobi</Label>
+            <Label>prop_farm</Label>
+          </Labels>
+        </Item>
+      </Group>
+    </Group>
+    <Group Page_Template="GroupTemplate" Page_Title="UnitTypes Group">
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Labels>
+        <Label>page_group</Label>
+        <Label>page_dynamic</Label>
+      </Labels>
+      <Item Page_Template="PropNoLookupResourceTemplate" Page_Title="UnitTypes (Property) Field">
+        <Field_Name_Standard_Name>UnitTypes</Field_Name_Standard_Name>
+        <Definition>A collection of types of units included in the income (multi-family) property.  The collection includes a type, beds, baths and other aspects of the type of unit behind described.</Definition>
+        <Groupings>
+          <Group Link="Property Resource">Property Resource</Group>
+          <Group Link="UnitTypes">UnitTypes</Group>
+        </Groupings>
+        <Simple_Data_Type>Collection</Simple_Data_Type>
+        <Suggested_Maximum_Length></Suggested_Maximum_Length>
+        <Synonyms></Synonyms>
+        <Element_Status>Proposed</Element_Status>
+        <BEDES></BEDES>
+        <Field_Certification_Level>Platinum</Field_Certification_Level>
+        <Record_Identifier>101014</Record_Identifier>
+        <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+        <Lookup>&lt;n/a&gt;</Lookup>
+        <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+        <Repeating_Element>No</Repeating_Element>
+        <Property_Types>
+          <Class Link="Residential Income Property Type">RINC</Class>
+          <Class Link="Commercial Sale Property Type">COMS</Class>
+          <Class Link="Commercial Lease Property Type">COML</Class>
+        </Property_Types>
+        <Payloads></Payloads>
+        <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+        <Revised_Date>Apr 25 2018</Revised_Date>
+        <Added_in_Version>1.6.0</Added_in_Version>
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Lookup_Values/>
+        <Labels>
+          <Label>page_item</Label>
+          <Label>page_dynamic</Label>
+          <Label>field_status_proposed</Label>
+          <Label>prop_rinc</Label>
+          <Label>prop_coms</Label>
+          <Label>prop_coml</Label>
+        </Labels>
+      </Item>
+    </Group>
+    <Group Page_Template="GroupTemplate" Page_Title="Utilities Group">
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Labels>
+        <Label>page_group</Label>
+        <Label>page_dynamic</Label>
+      </Labels>
+      <Item Page_Template="PropNoLookupResourceTemplate" Page_Title="PowerProduction (Property) Field">
+        <Field_Name_Standard_Name>PowerProduction</Field_Name_Standard_Name>
+        <Definition>A collection of the types of power production system(s) available on the property.  The collection includes the type of system and other details about the power produced and age of the system.</Definition>
+        <Groupings>
+          <Group Link="Property Resource">Property Resource</Group>
+          <Group Link="Utilities">Utilities</Group>
+        </Groupings>
+        <Simple_Data_Type>Collection</Simple_Data_Type>
+        <Suggested_Maximum_Length></Suggested_Maximum_Length>
+        <Synonyms></Synonyms>
+        <Element_Status>Proposed</Element_Status>
+        <BEDES></BEDES>
+        <Field_Certification_Level>Platinum</Field_Certification_Level>
+        <Record_Identifier>101015</Record_Identifier>
+        <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+        <Lookup>&lt;n/a&gt;</Lookup>
+        <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+        <Repeating_Element>No</Repeating_Element>
+        <Property_Types>
+          <Class Link="Residential Property Type">RESI</Class>
+          <Class Link="Residential Lease Property Type">RLSE</Class>
+          <Class Link="Residential Income Property Type">RINC</Class>
+          <Class Link="Land Property Type">LAND</Class>
+          <Class Link="Mobile Home Property Type">MOBI</Class>
+          <Class Link="Farm Land Property Type">FARM</Class>
+          <Class Link="Commercial Sale Property Type">COMS</Class>
+          <Class Link="Commercial Lease Property Type">COML</Class>
+        </Property_Types>
+        <Payloads></Payloads>
+        <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+        <Revised_Date>Apr 25 2018</Revised_Date>
+        <Added_in_Version>1.6.0</Added_in_Version>
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Lookup_Values/>
+        <Labels>
+          <Label>page_item</Label>
+          <Label>page_dynamic</Label>
+          <Label>field_status_proposed</Label>
+          <Label>prop_resi</Label>
+          <Label>prop_rlse</Label>
+          <Label>prop_rinc</Label>
+          <Label>prop_land</Label>
+          <Label>prop_mobi</Label>
+          <Label>prop_farm</Label>
+          <Label>prop_coms</Label>
+          <Label>prop_coml</Label>
+        </Labels>
+      </Item>
+      <Item Page_Template="PropNoLookupResourceTemplate" Page_Title="XXXPowerProduction Field">
+        <Field_Name_Standard_Name>XXXPowerProduction</Field_Name_Standard_Name>
+        <Definition>de nada</Definition>
+        <Groupings>
+          <Group Link="Property Resource">Property Resource</Group>
+          <Group Link="Utilities">Utilities</Group>
+        </Groupings>
+        <Simple_Data_Type>Collection</Simple_Data_Type>
+        <Suggested_Maximum_Length></Suggested_Maximum_Length>
+        <Synonyms></Synonyms>
+        <Element_Status>Proposed</Element_Status>
+        <BEDES></BEDES>
+        <Field_Certification_Level>Platinum</Field_Certification_Level>
+        <Record_Identifier>101016</Record_Identifier>
+        <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+        <Lookup>&lt;n/a&gt;</Lookup>
+        <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+        <Repeating_Element>No</Repeating_Element>
+        <Property_Types>
+          <Class Link="Residential Property Type">RESI</Class>
+          <Class Link="Residential Lease Property Type">RLSE</Class>
+          <Class Link="Residential Income Property Type">RINC</Class>
+          <Class Link="Land Property Type">LAND</Class>
+          <Class Link="Mobile Home Property Type">MOBI</Class>
+          <Class Link="Farm Land Property Type">FARM</Class>
+          <Class Link="Commercial Sale Property Type">COMS</Class>
+          <Class Link="Commercial Lease Property Type">COML</Class>
+        </Property_Types>
+        <Payloads></Payloads>
+        <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+        <Revised_Date>Apr 25 2018</Revised_Date>
+        <Added_in_Version>1.6.0</Added_in_Version>
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Lookup_Values/>
+        <Labels>
+          <Label>page_item</Label>
+          <Label>page_dynamic</Label>
+          <Label>field_status_proposed</Label>
+          <Label>prop_resi</Label>
+          <Label>prop_rlse</Label>
+          <Label>prop_rinc</Label>
+          <Label>prop_land</Label>
+          <Label>prop_mobi</Label>
+          <Label>prop_farm</Label>
+          <Label>prop_coms</Label>
+          <Label>prop_coml</Label>
+        </Labels>
+      </Item>
+    </Group>
+  </Group>
+  <Group Page_Template="ResourceTemplate" Page_Title="Rules Resource">
+    <Resource_Description>A flexible resource that can be used to transmit business and system rules from host to client application.  These rules may be ment for human consumption, e.g. REBR, in which case the client may be a tool allowing a person to review the business rules.  The rules may also be meant for manchine consumption, e.g. RetsValidation where the rules are structured to be consumed and executed upon by the client application without human intervention.. </Resource_Description>
+    <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+    <Labels>
+      <Label>page_resource</Label>
+      <Label>page_dynamic</Label>
+    </Labels>
+    <Item Page_Template="OtherResourceTemplate" Page_Title="ClassName (Rules) Field">
+      <Field_Name_Standard_Name>ClassName</Field_Name_Standard_Name>
+      <Definition>The class or table to which the Rule refers. i.e. Residential, Residential Lease, Income, Mobile, etc.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open With Enumerations</Lookup_Status>
+      <Lookup Link="ClassName Lookups">ClassName Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446001</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="ClassName Lookups">ClassName Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>classname_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="FieldKey (Rules) Field">
+      <Field_Name_Standard_Name>FieldKey</Field_Name_Standard_Name>
+      <Definition>The unique identifier of the field to which the Rule applies.  This is a foreign key relating to the field found in the resource per the ResourceName.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446002</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="FieldKeyNumeric (Rules) Field">
+      <Field_Name_Standard_Name>FieldKeyNumeric</Field_Name_Standard_Name>
+      <Definition>The unique identifier of the field to which the Rule applies.  This is a foreign key relating to the field found in the resource per the ResourceName.  This is the numeric only key and used as an alternative to the FieldKey field.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Number</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446003</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="FieldName (Rules) Field">
+      <Field_Name_Standard_Name>FieldName</Field_Name_Standard_Name>
+      <Definition>The name of the field to which the Rule applies.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446004</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="ModificationTimestamp (Rules) Field">
+      <Field_Name_Standard_Name>ModificationTimestamp</Field_Name_Standard_Name>
+      <Definition>The transactional timestamp automatically recorded by the MLS system representing the date/time the rule was last modified.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Timestamp</Simple_Data_Type>
+      <Suggested_Maximum_Length>27</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>ModificationDateTime, DateTimeModified, ModDate, DateMod, UpdateDate, UpdateTimestamp</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446005</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="OriginalEntryTimestamp (Rules) Field">
+      <Field_Name_Standard_Name>OriginalEntryTimestamp</Field_Name_Standard_Name>
+      <Definition>The transactional timestamp automatically recorded by the MLS system representing the date/time the rule was initially entered.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Timestamp</Simple_Data_Type>
+      <Suggested_Maximum_Length>27</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>EntryDate, InputDate, DateTimeCreated, CreatedDate.</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446006</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="OriginatingSystemID (Rules) Field">
+      <Field_Name_Standard_Name>OriginatingSystemID</Field_Name_Standard_Name>
+      <Definition>The RESO OUID's OrganizationUniqueId of the Originating record provider.  The Originating system is the system with authoritative control over the record.  For example; the name of the MLS where the Rule originated.  In cases where the Originating system was not where the record originated (the authoritative system), see the Originating System fields.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>25</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446007</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="OriginatingSystemName (Rules) Field">
+      <Field_Name_Standard_Name>OriginatingSystemName</Field_Name_Standard_Name>
+      <Definition>The name of the Originating record provider.  Most commonly the name of the MLS. The place where the Rules is originally input.  The legal name of the company.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>ProviderName, MLSID</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446008</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="OriginatingSystemRuleKey Field">
+      <Field_Name_Standard_Name>OriginatingSystemRuleKey</Field_Name_Standard_Name>
+      <Definition>The system key, a unique record identifier, from the Originating system.  The Originating system is the system with authoritative control over the record.  For example, the Multiple Listing Service where the Rule originated.  There may be cases where the Source System (how you received the record) is not the Originating System.  See Source System Key for more information.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446009</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherResourceTemplate" Page_Title="ResourceName (Rules) Field">
+      <Field_Name_Standard_Name>ResourceName</Field_Name_Standard_Name>
+      <Definition>The resource to which the Rule refers.  E.g. Property, Member, Office, Open House, etc.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open With Enumerations</Lookup_Status>
+      <Lookup Link="ResourceName Lookups">ResourceName Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446010</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="ResourceName Lookups">ResourceName Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>resourcename_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleAction Field">
+      <Field_Name_Standard_Name>RuleAction</Field_Name_Standard_Name>
+      <Definition>The action to be taken when processing the rule.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446011</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleDescription Field">
+      <Field_Name_Standard_Name>RuleDescription</Field_Name_Standard_Name>
+      <Definition>A detailed textual description of the rule.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446012</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleEnabledYN Field">
+      <Field_Name_Standard_Name>RuleEnabledYN</Field_Name_Standard_Name>
+      <Definition>Is the rule currently enabled?</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Boolean</Simple_Data_Type>
+      <Suggested_Maximum_Length></Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446013</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleErrorText Field">
+      <Field_Name_Standard_Name>RuleErrorText</Field_Name_Standard_Name>
+      <Definition>Textual information conveyed when the given rule is in error or fails.  (e.g. The listing price must be greater than 0.)</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446014</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleExpression Field">
+      <Field_Name_Standard_Name>RuleExpression</Field_Name_Standard_Name>
+      <Definition>The expression or details of the rule.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446015</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherResourceTemplate" Page_Title="RuleFormat Field">
+      <Field_Name_Standard_Name>RuleFormat</Field_Name_Standard_Name>
+      <Definition>$filter, JavaScript, RETS1.8, REBR, etc.&#8230; ?</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open With Enumerations</Lookup_Status>
+      <Lookup Link="RuleFormat Lookups">RuleFormat Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446016</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>ruleformat_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleHelpText Field">
+      <Field_Name_Standard_Name>RuleHelpText</Field_Name_Standard_Name>
+      <Definition>The text that might be displayed on a form that helps the user fix the rule (e.g. enter phone number in the 10 digit format ###-###-####.)</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446017</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleKey Field">
+      <Field_Name_Standard_Name>RuleKey</Field_Name_Standard_Name>
+      <Definition></Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446018</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleKeyNumeric Field">
+      <Field_Name_Standard_Name>RuleKeyNumeric</Field_Name_Standard_Name>
+      <Definition></Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Number</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446019</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleName Field">
+      <Field_Name_Standard_Name>RuleName</Field_Name_Standard_Name>
+      <Definition>A descriptive name for the rule.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446020</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleOrder Field">
+      <Field_Name_Standard_Name>RuleOrder</Field_Name_Standard_Name>
+      <Definition>When in use, execution of rules are to follow the order specified by this field. Any rule that references another field will need to be ordered.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>Number</Simple_Data_Type>
+      <Suggested_Maximum_Length>64</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446021</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleType Field">
+      <Field_Name_Standard_Name>RuleType</Field_Name_Standard_Name>
+      <Definition>Validation, Required, Warning, etc.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open</Lookup_Status>
+      <Lookup>&lt;Not Defined&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446022</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleVersion Field">
+      <Field_Name_Standard_Name>RuleVersion</Field_Name_Standard_Name>
+      <Definition>A semantically-versioned rule version. https://semver.org/</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446023</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="RuleWarningText Field">
+      <Field_Name_Standard_Name>RuleWarningText</Field_Name_Standard_Name>
+      <Definition>Textual information conveyed when a given rule has met a condition that warrants a warning message. e.g. you've entered a sale price that is has a difference from the listing price greater than 25%.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446024</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="SourceSystemHistoryKey (Rules) Field">
+      <Field_Name_Standard_Name>SourceSystemHistoryKey</Field_Name_Standard_Name>
+      <Definition>The system key, a unique record identifier, from the Source System.  The Source System is the system from which the record was directly received.  In cases where the Source System was not where the record originated (the authoritative system), see the Originating System fields.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446025</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="SourceSystemID (Rules) Field">
+      <Field_Name_Standard_Name>SourceSystemID</Field_Name_Standard_Name>
+      <Definition>The RESO OUID's OrganizationUniqueId of the Source record provider.  The source system is the system from which the record was directly received.  In cases where the source system was not where the record originated (the authoritative system), see the Originating System fields.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>25</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446026</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="OtherNoLookupResourceTemplate" Page_Title="SourceSystemName (Rules) Field">
+      <Field_Name_Standard_Name>SourceSystemName</Field_Name_Standard_Name>
+      <Definition>The name of the Rule record provider.  The system from which the record was directly received.  The legal name of the company.</Definition>
+      <Groupings>
+        <Group Link="Rules Resource">Rules Resource</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>446027</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+  </Group>
+  <Group Page_Template="ResourceTemplate" Page_Title="SocialMedia Collection">
+    <Resource_Description>Some systems may allow for the input of more than one type of social media for a given member, office, contact, etc.  In those cases, a collection of social media records may be related to the member, office, etc., record.. </Resource_Description>
+    <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+    <Labels>
+      <Label>page_resource</Label>
+      <Label>page_dynamic</Label>
+    </Labels>
+    <Item Page_Template="ReferenceResourceTemplate" Page_Title="ClassName (SocialMedia) Field">
+      <Field_Name_Standard_Name>ClassName</Field_Name_Standard_Name>
+      <Definition>Name of the class to which the record is referencing.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single
+</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open with Enumerations</Lookup_Status>
+      <Lookup Link="ClassName Lookups">ClassName Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444011</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="ClassName Lookups">ClassName Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>classname_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="ModificationTimestamp (SocialMedia) Field">
+      <Field_Name_Standard_Name>ModificationTimestamp</Field_Name_Standard_Name>
+      <Definition>The transactional timestamp automatically recorded by the MLS system representing the date/time the media record was last modified.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>Timestamp</Simple_Data_Type>
+      <Suggested_Maximum_Length>27</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>ModificationDateTime, DateTimeModified, ModDate, DateMod, UpdateDate, UpdateTimestamp</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444012</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceResourceTemplate" Page_Title="ResourceName (SocialMedia) Field">
+      <Field_Name_Standard_Name>ResourceName</Field_Name_Standard_Name>
+      <Definition>The resource or table of the listing or other record the media relates to.  i.e. Property, Member, Office, etc.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>Open with Enumerations</Lookup_Status>
+      <Lookup Link="ResourceName Lookups">ResourceName Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444013</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="ResourceName Lookups">ResourceName Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>resourcename_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="ResourceRecordID (SocialMedia) Field">
+      <Field_Name_Standard_Name>ResourceRecordID</Field_Name_Standard_Name>
+      <Definition>The well known identifier of the related record from the source resource. The value may be identical to that of the Listing Key, but the Listing ID is intended to be the value used by a human to retrieve the information about a specific listing. In a multiple originating system or a merged system, this value may not be unique and may require the use of the provider system to create a synthetic unique value.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>MLNumber, MLSNumber, ListingNumber, AgentID, OfficeID, ContactID</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444014</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="ResourceRecordKey (SocialMedia) Field">
+      <Field_Name_Standard_Name>ResourceRecordKey</Field_Name_Standard_Name>
+      <Definition>The primary key of the related record from the source resource. For example the ListingKey, AgentKey, OfficeKey, TeamKey, etc.  This is the system you are connecting to and not necessarily the original source of the record.  This is a foreign key from the resource selected in the ResourceName field.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>SystemUniqueID, ImmediateSourceID</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444015</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="ResourceRecordKeyNumeric (SocialMedia) Field">
+      <Field_Name_Standard_Name>ResourceRecordKeyNumeric</Field_Name_Standard_Name>
+      <Definition>The primary key of the related record from the source resource. For example the ListingKey, AgentKey, OfficeKey, TeamKey, etc.  This is the system you are connecting to and not necessarily the original source of the record.  This is a foreign key from the resource selected in the ResourceName field.  This is the numeric only key and used as an alternative to the ResourceRecordKey field.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>Number</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>SystemUniqueID, ImmediateSourceID</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444016</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="SocialMediaKey (SocialMedia) Field">
+      <Field_Name_Standard_Name>SocialMediaKey</Field_Name_Standard_Name>
+      <Definition>A system unique identifier. Specifically, in aggregation systems, the Key is the system unique identifier from the system that the record was just retrieved. This may be identical to the related xxxId identifier, but the key is guaranteed unique for this record set. </Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>SystemUniqueID, ImmediateSourceID</Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444017</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="SocialMediaKeyNumeric (SocialMedia) Field">
+      <Field_Name_Standard_Name>SocialMediaKeyNumeric</Field_Name_Standard_Name>
+      <Definition>The local, well-known identifier. This value may not be unique, specifically in the case of aggregation systems, this value should be the identifier from the original system.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>Number</Simple_Data_Type>
+      <Suggested_Maximum_Length>255</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444018</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values/>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceResourceTemplate" Page_Title="SocialMediaType (SocialMedia) Field">
+      <Field_Name_Standard_Name>SocialMediaType</Field_Name_Standard_Name>
+      <Definition>A list of types of sites, blog, social media, the Member URL or ID is referring to. i.e. Website, Blog, Facebook, Twitter, LinkedIn, Skype, etc., This list is used to populate the Type with repeating Social Media URL or ID types.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String List, Single
+</Simple_Data_Type>
+      <Suggested_Maximum_Length>50</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms>MimeType</Synonyms>
+      <Lookup_Status>Open with Enumerations</Lookup_Status>
+      <Lookup Link="MediaType Lookups">MediaType Lookups</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444019</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values Link="MediaType Lookups">MediaType Lookups</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+        <Label>mediatype_lookups</Label>
+      </Labels>
+    </Item>
+    <Item Page_Template="ReferenceNoLookupResourceTemplate" Page_Title="SocialMediaUrlOrId (SocialMedia) Field">
+      <Field_Name_Standard_Name>SocialMediaUrlOrId</Field_Name_Standard_Name>
+      <Definition>The website URL or ID of social media site or account of the member.  This is a repeating element.  Replace [Type] with any of the options from the SocialMediaType field to create a unique field for that type of social media.  For example: SocialMediaFacebookUrlOrID, SocialMediaSkypeUrlOrID, etc.</Definition>
+      <Groupings>
+        <Group Link="SocialMedia Collection">SocialMedia Collection</Group>
+      </Groupings>
+      <Simple_Data_Type>String</Simple_Data_Type>
+      <Suggested_Maximum_Length>8000</Suggested_Maximum_Length>
+      <Suggested_Maximum_Precision></Suggested_Maximum_Precision>
+      <Synonyms></Synonyms>
+      <Lookup_Status>&lt;n/a&gt;</Lookup_Status>
+      <Lookup>&lt;n/a&gt;</Lookup>
+      <Field_Certification_Level>Platinum</Field_Certification_Level>
+      <References>
+        <Reference Link="Member Field">Member Field</Reference>
+        <Reference Link="Office Field">Office Field</Reference>
+        <Reference Link="Contacts Field">Contacts Field</Reference>
+        <Reference Link="Teams Field">Teams Field</Reference>
+        <Reference Link="OUID Field">OUID Field</Reference>
+      </References>
+      <Payloads></Payloads>
+      <BEDES></BEDES>
+      <Repeating_Element>No</Repeating_Element>
+      <Record_Identifier>444020</Record_Identifier>
+      <Comments></Comments>
+      <Element_Status>Proposed</Element_Status>
+      <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+      <Revised_Date>Apr 25 2018</Revised_Date>
+      <Added_in_Version>1.7.0</Added_in_Version>
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
+      <Labels>
+        <Label>page_item</Label>
+        <Label>page_dynamic</Label>
+        <Label>field_status_proposed</Label>
+      </Labels>
+    </Item>
+  </Group>
+  <Group Page_Template="LookupTopLevelTemplate" Page_Title="Lookup Fields and Values">
+    <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+    <Labels>
+      <Label>page_lookuptop</Label>
+      <Label>page_dynamic</Label>
+    </Labels>
+    <Group Page_Template="LookupIndexTemplate" Page_Title="R - Lookup Fields">
+      <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+      <Labels>
+        <Label>page_lookupindex</Label>
+        <Label>page_dynamic</Label>
+      </Labels>
+      <Group Page_Template="LookupFieldTemplate" Page_Title="RuleFormat Lookups">
+        <Lookup_FieldID>447000</Lookup_FieldID>
+        <lookupfield_ref>ruleformat_lookups</lookupfield_ref>
+        <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+        <Labels>
+          <Label>page_lookupfield</Label>
+          <Label>page_dynamic</Label>
+          <Label>alpha_r</Label>
+        </Labels>
+        <Item Page_Template="LookupValueTemplate" Page_Title="REBR">
+          <Lookup_Value>REBR</Lookup_Value>
+          <Lookup_Field Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Field>
+          <Definition>Real Estate Business Rule (REBR) notation, based on  RuleSpeak structured notation, uses a predictable syntax to allow humans to clearly and unambiguously specify real estate business rules.  REBR is not machine consumable and design for human production and consumption. </Definition>
+          <Synonyms>Real Estate Business Rule</Synonyms>
+          <BEDES></BEDES>
+          <References>
+            <Reference Link="Rules Resource">Rules</Reference>
+          </References>
+          <Element_Status>Proposed</Element_Status>
+          <Lookup_FieldID>447000</Lookup_FieldID>
+          <LookupID>447001</LookupID>
+          <Spanish_Lookup_Field></Spanish_Lookup_Field>
+          <Spanish_Lookup_Value></Spanish_Lookup_Value>
+          <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+          <Revised_Date>Apr 25 2018</Revised_Date>
+          <DDVersionAdded>1.7.0</DDVersionAdded>
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Comments></Comments>
+          <Labels>
+            <Label>page_lookupvalue</Label>
+            <Label>page_dynamic</Label>
+            <Label>page_item</Label>
+            <Label>lookup_status_proposed</Label>
+          </Labels>
+        </Item>
+        <Item Page_Template="LookupValueTemplate" Page_Title="JavaScript">
+          <Lookup_Value>JavaScript</Lookup_Value>
+          <Lookup_Field Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Field>
+          <Definition>Business rules expressed utilizing the JavaScript language.  The underlying structure of the rules are not defined at this time and may vary from source to source.</Definition>
+          <Synonyms>JS</Synonyms>
+          <BEDES></BEDES>
+          <References>
+            <Reference Link="Rules Resource">Rules</Reference>
+          </References>
+          <Element_Status>Proposed</Element_Status>
+          <Lookup_FieldID>447000</Lookup_FieldID>
+          <LookupID>447002</LookupID>
+          <Spanish_Lookup_Field></Spanish_Lookup_Field>
+          <Spanish_Lookup_Value></Spanish_Lookup_Value>
+          <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+          <Revised_Date>Apr 25 2018</Revised_Date>
+          <DDVersionAdded>1.7.0</DDVersionAdded>
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Comments></Comments>
+          <Labels>
+            <Label>page_lookupvalue</Label>
+            <Label>page_dynamic</Label>
+            <Label>page_item</Label>
+            <Label>lookup_status_proposed</Label>
+          </Labels>
+        </Item>
+        <Item Page_Template="LookupValueTemplate" Page_Title="$filter (RuleFormat) ">
+          <Lookup_Value>$filter</Lookup_Value>
+          <Lookup_Field Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Field>
+          <Definition>Business rules expressed utilizing the OData $filter syntax.  The underlying structure of the rules are not defined at this time and may vary from source to source.</Definition>
+          <Synonyms>OData</Synonyms>
+          <BEDES></BEDES>
+          <References>
+            <Reference Link="Rules Resource">Rules</Reference>
+          </References>
+          <Element_Status>Proposed</Element_Status>
+          <Lookup_FieldID>447000</Lookup_FieldID>
+          <LookupID>447003</LookupID>
+          <Spanish_Lookup_Field></Spanish_Lookup_Field>
+          <Spanish_Lookup_Value></Spanish_Lookup_Value>
+          <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+          <Revised_Date>Apr 25 2018</Revised_Date>
+          <DDVersionAdded>1.7.0</DDVersionAdded>
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Comments></Comments>
+          <Labels>
+            <Label>page_lookupvalue</Label>
+            <Label>page_dynamic</Label>
+            <Label>page_item</Label>
+            <Label>lookup_status_proposed</Label>
+          </Labels>
+        </Item>
+        <Item Page_Template="LookupValueTemplate" Page_Title="RetsValidation">
+          <Lookup_Value>RetsValidation</Lookup_Value>
+          <Lookup_Field Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Field>
+          <Definition>Business rules expressed using the well defined RETS 1.9 Validation Expressions.  See section 11.4.7 of the RETS 1.9 Specification for additional details. https://www.reso.org/download/rets-1-9-specification/</Definition>
+          <Synonyms>Validation Expressions</Synonyms>
+          <BEDES></BEDES>
+          <References>
+            <Reference Link="Rules Resource">Rules</Reference>
+          </References>
+          <Element_Status>Proposed</Element_Status>
+          <Lookup_FieldID>447000</Lookup_FieldID>
+          <LookupID>447004</LookupID>
+          <Spanish_Lookup_Field></Spanish_Lookup_Field>
+          <Spanish_Lookup_Value></Spanish_Lookup_Value>
+          <Status_Change_Date>Apr 25 2018</Status_Change_Date>
+          <Revised_Date>Apr 25 2018</Revised_Date>
+          <DDVersionAdded>1.7.0</DDVersionAdded>
+          <ModificationTimestamp>Apr 25 2018</ModificationTimestamp>
+          <Comments></Comments>
+          <Labels>
+            <Label>page_lookupvalue</Label>
+            <Label>page_dynamic</Label>
+            <Label>page_item</Label>
+            <Label>lookup_status_proposed</Label>
+          </Labels>
+        </Item>
+      </Group>
+    </Group>
+  </Group>
+</wikiimport>

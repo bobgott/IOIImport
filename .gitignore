@@ -1,6 +1,10 @@
 *.pyc
 *.pyo
-files/
+files/achive/
+files/QA/
+files/Working/
+files/logs/
+files/input/
 .idea/
 Archive/
 XLS-to-CSV/
