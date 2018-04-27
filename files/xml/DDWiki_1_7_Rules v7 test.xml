@@ -1,25 +1,25 @@
-<wikiimport XMLCreateDate="20180426T1831" XlsxDate="20180420T0000">
+<wikiimport XMLCreateDate="20180427T1332" XlsxDate="20180420T0000">
   <Group Page_Template="ResourceTemplate" Page_Title="Property Resource">
     <Resource_Description>The Property Resource includes fields commonly used in a Multiple Listing Service listing. </Resource_Description>
-    <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+    <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
     <Labels>
       <Label>page_resource</Label>
       <Label>page_dynamic</Label>
     </Labels>
     <Group Page_Template="GroupTemplate" Page_Title="Structure Group">
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Labels>
         <Label>page_group</Label>
         <Label>page_dynamic</Label>
       </Labels>
       <Group Page_Template="GroupTemplate" Page_Title="Performance Group">
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Labels>
           <Label>page_group</Label>
           <Label>page_dynamic</Label>
         </Labels>
         <Group Page_Template="GroupTemplate" Page_Title="GreenVerification Group">
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Labels>
             <Label>page_group</Label>
             <Label>page_dynamic</Label>
@@ -54,10 +54,10 @@
               <Class Link="Commercial Lease Property Type">COML</Class>
             </Property_Types>
             <Payloads></Payloads>
-            <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-            <Revised_Date>Apr 26 2018</Revised_Date>
+            <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+            <Revised_Date>Apr 27 2018</Revised_Date>
             <Added_in_Version>1.6.0</Added_in_Version>
-            <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+            <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
             <Lookup_Values/>
             <Labels>
               <Label>page_item</Label>
@@ -75,7 +75,7 @@
         </Group>
       </Group>
       <Group Page_Template="GroupTemplate" Page_Title="Rooms Group">
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Labels>
           <Label>page_group</Label>
           <Label>page_dynamic</Label>
@@ -106,10 +106,10 @@
             <Class Link="Farm Land Property Type">FARM</Class>
           </Property_Types>
           <Payloads></Payloads>
-          <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-          <Revised_Date>Apr 26 2018</Revised_Date>
+          <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+          <Revised_Date>Apr 27 2018</Revised_Date>
           <Added_in_Version>1.6.0</Added_in_Version>
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Lookup_Values/>
           <Labels>
             <Label>page_item</Label>
@@ -124,7 +124,7 @@
       </Group>
     </Group>
     <Group Page_Template="GroupTemplate" Page_Title="UnitTypes Group">
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Labels>
         <Label>page_group</Label>
         <Label>page_dynamic</Label>
@@ -153,10 +153,10 @@
           <Class Link="Commercial Lease Property Type">COML</Class>
         </Property_Types>
         <Payloads></Payloads>
-        <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-        <Revised_Date>Apr 26 2018</Revised_Date>
+        <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+        <Revised_Date>Apr 27 2018</Revised_Date>
         <Added_in_Version>1.6.0</Added_in_Version>
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Lookup_Values/>
         <Labels>
           <Label>page_item</Label>
@@ -169,7 +169,7 @@
       </Item>
     </Group>
     <Group Page_Template="GroupTemplate" Page_Title="Utilities Group">
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Labels>
         <Label>page_group</Label>
         <Label>page_dynamic</Label>
@@ -203,10 +203,10 @@
           <Class Link="Commercial Lease Property Type">COML</Class>
         </Property_Types>
         <Payloads></Payloads>
-        <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-        <Revised_Date>Apr 26 2018</Revised_Date>
+        <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+        <Revised_Date>Apr 27 2018</Revised_Date>
         <Added_in_Version>1.6.0</Added_in_Version>
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Lookup_Values/>
         <Labels>
           <Label>page_item</Label>
@@ -251,10 +251,10 @@
           <Class Link="Commercial Lease Property Type">COML</Class>
         </Property_Types>
         <Payloads></Payloads>
-        <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-        <Revised_Date>Apr 26 2018</Revised_Date>
+        <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+        <Revised_Date>Apr 27 2018</Revised_Date>
         <Added_in_Version>1.6.0</Added_in_Version>
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Lookup_Values/>
         <Labels>
           <Label>page_item</Label>
@@ -274,7 +274,7 @@
   </Group>
   <Group Page_Template="ResourceTemplate" Page_Title="Rules Resource">
     <Resource_Description>A flexible resource that can be used to transmit business and system rules from host to client application.  These rules may be ment for human consumption, e.g. REBR, in which case the client may be a tool allowing a person to review the business rules.  The rules may also be meant for manchine consumption, e.g. RetsValidation where the rules are structured to be consumed and executed upon by the client application without human intervention.. </Resource_Description>
-    <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+    <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
     <Labels>
       <Label>page_resource</Label>
       <Label>page_dynamic</Label>
@@ -298,10 +298,10 @@
       <Record_Identifier>446001</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="ClassName Lookups">ClassName Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -329,10 +329,10 @@
       <Record_Identifier>446002</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -359,10 +359,10 @@
       <Record_Identifier>446003</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -389,10 +389,10 @@
       <Record_Identifier>446004</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -419,10 +419,10 @@
       <Record_Identifier>446005</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -449,10 +449,10 @@
       <Record_Identifier>446006</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -479,10 +479,10 @@
       <Record_Identifier>446007</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -509,10 +509,10 @@
       <Record_Identifier>446008</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -539,10 +539,10 @@
       <Record_Identifier>446009</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -569,10 +569,10 @@
       <Record_Identifier>446010</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="ResourceName Lookups">ResourceName Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -600,10 +600,10 @@
       <Record_Identifier>446011</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -630,10 +630,10 @@
       <Record_Identifier>446012</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -660,10 +660,10 @@
       <Record_Identifier>446013</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -690,10 +690,10 @@
       <Record_Identifier>446014</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -720,10 +720,10 @@
       <Record_Identifier>446015</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -750,10 +750,10 @@
       <Record_Identifier>446016</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="RuleFormat Lookups">RuleFormat Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -781,10 +781,10 @@
       <Record_Identifier>446017</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -811,10 +811,10 @@
       <Record_Identifier>446018</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -841,10 +841,10 @@
       <Record_Identifier>446019</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -871,10 +871,10 @@
       <Record_Identifier>446020</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -901,10 +901,10 @@
       <Record_Identifier>446021</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -931,10 +931,10 @@
       <Record_Identifier>446022</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -961,10 +961,10 @@
       <Record_Identifier>446023</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -991,10 +991,10 @@
       <Record_Identifier>446024</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -1021,10 +1021,10 @@
       <Record_Identifier>446025</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -1051,10 +1051,10 @@
       <Record_Identifier>446026</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -1081,10 +1081,10 @@
       <Record_Identifier>446027</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -1095,7 +1095,7 @@
   </Group>
   <Group Page_Template="ResourceTemplate" Page_Title="SocialMedia Collection">
     <Resource_Description>Some systems may allow for the input of more than one type of social media for a given member, office, contact, etc.  In those cases, a collection of social media records may be related to the member, office, etc., record.. </Resource_Description>
-    <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+    <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
     <Labels>
       <Label>page_resource</Label>
       <Label>page_dynamic</Label>
@@ -1127,10 +1127,10 @@
       <Record_Identifier>444011</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="ClassName Lookups">ClassName Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1165,10 +1165,10 @@
       <Record_Identifier>444012</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1202,10 +1202,10 @@
       <Record_Identifier>444013</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="ResourceName Lookups">ResourceName Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1240,10 +1240,10 @@
       <Record_Identifier>444014</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1277,10 +1277,10 @@
       <Record_Identifier>444015</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1314,10 +1314,10 @@
       <Record_Identifier>444016</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1351,10 +1351,10 @@
       <Record_Identifier>444017</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1388,10 +1388,10 @@
       <Record_Identifier>444018</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values/>
       <Labels>
         <Label>page_item</Label>
@@ -1426,10 +1426,10 @@
       <Record_Identifier>444019</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values Link="MediaType Lookups">MediaType Lookups</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1464,10 +1464,10 @@
       <Record_Identifier>444020</Record_Identifier>
       <Comments></Comments>
       <Element_Status>Proposed</Element_Status>
-      <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-      <Revised_Date>Apr 26 2018</Revised_Date>
+      <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+      <Revised_Date>Apr 27 2018</Revised_Date>
       <Added_in_Version>1.7.0</Added_in_Version>
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Lookup_Values>&lt;n/a&gt;</Lookup_Values>
       <Labels>
         <Label>page_item</Label>
@@ -1477,13 +1477,13 @@
     </Item>
   </Group>
   <Group Page_Template="LookupTopLevelTemplate" Page_Title="Lookup Fields and Values">
-    <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+    <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
     <Labels>
       <Label>page_lookuptop</Label>
       <Label>page_dynamic</Label>
     </Labels>
     <Group Page_Template="LookupIndexTemplate" Page_Title="R - Lookup Fields">
-      <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+      <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
       <Labels>
         <Label>page_lookupindex</Label>
         <Label>page_dynamic</Label>
@@ -1491,7 +1491,7 @@
       <Group Page_Template="LookupFieldTemplate" Page_Title="RuleFormat Lookups">
         <Lookup_FieldID>447000</Lookup_FieldID>
         <lookupfield_ref>ruleformat_lookups</lookupfield_ref>
-        <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+        <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
         <Labels>
           <Label>page_lookupfield</Label>
           <Label>page_dynamic</Label>
@@ -1511,10 +1511,10 @@
           <LookupID>447001</LookupID>
           <Spanish_Lookup_Field></Spanish_Lookup_Field>
           <Spanish_Lookup_Value></Spanish_Lookup_Value>
-          <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-          <Revised_Date>Apr 26 2018</Revised_Date>
+          <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+          <Revised_Date>Apr 27 2018</Revised_Date>
           <DDVersionAdded>1.7.0</DDVersionAdded>
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Comments></Comments>
           <Labels>
             <Label>page_lookupvalue</Label>
@@ -1537,10 +1537,10 @@
           <LookupID>447002</LookupID>
           <Spanish_Lookup_Field></Spanish_Lookup_Field>
           <Spanish_Lookup_Value></Spanish_Lookup_Value>
-          <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-          <Revised_Date>Apr 26 2018</Revised_Date>
+          <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+          <Revised_Date>Apr 27 2018</Revised_Date>
           <DDVersionAdded>1.7.0</DDVersionAdded>
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Comments></Comments>
           <Labels>
             <Label>page_lookupvalue</Label>
@@ -1563,10 +1563,10 @@
           <LookupID>447003</LookupID>
           <Spanish_Lookup_Field></Spanish_Lookup_Field>
           <Spanish_Lookup_Value></Spanish_Lookup_Value>
-          <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-          <Revised_Date>Apr 26 2018</Revised_Date>
+          <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+          <Revised_Date>Apr 27 2018</Revised_Date>
           <DDVersionAdded>1.7.0</DDVersionAdded>
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Comments></Comments>
           <Labels>
             <Label>page_lookupvalue</Label>
@@ -1589,10 +1589,10 @@
           <LookupID>447004</LookupID>
           <Spanish_Lookup_Field></Spanish_Lookup_Field>
           <Spanish_Lookup_Value></Spanish_Lookup_Value>
-          <Status_Change_Date>Apr 26 2018</Status_Change_Date>
-          <Revised_Date>Apr 26 2018</Revised_Date>
+          <Status_Change_Date>Apr 27 2018</Status_Change_Date>
+          <Revised_Date>Apr 27 2018</Revised_Date>
           <DDVersionAdded>1.7.0</DDVersionAdded>
-          <ModificationTimestamp>Apr 26 2018</ModificationTimestamp>
+          <ModificationTimestamp>Apr 27 2018</ModificationTimestamp>
           <Comments></Comments>
           <Labels>
             <Label>page_lookupvalue</Label>

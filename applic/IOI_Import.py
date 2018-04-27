@@ -6,11 +6,12 @@ import os
 import sys
 import openpyxl
 from applic.dicttoxml import DictToXML, DXMLGeneratedError
+# todo: Need to merge files_folders so git remote transfers files_folders.py
 from files_folders import FilesAndFolders
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
-__version_date__ = "04/24/2018"
+__version_date__ = "04/27/2018"
 __err_prefix__ = 'IOI'
 __high_err_num__ = 13
 
@@ -96,21 +97,15 @@ class ResoXLSXtoDict:
         # Read in Resource Sheets, formatted as: [sheet tab name] = [output xml resource name]
         try:
             if 'ResourceSheets' in self.config and len(self.config['ResourceSheets']) > 0:
-                resource_sheets_found = True
                 for resource_sheet in self.config['ResourceSheets']:
                     self.resource_sheets.append(resource_sheet)
-            else:
-                resource_sheets_found = False
         except KeyError:
             raise IOIGeneratedError("[IOI-12] Cannot find 'ResourceSheets' key in config.ini")
 
         # Get Lookup Sheet Name (only 1 allowed), formatted as: [LookupSheet] = [lookup spreadsheet tab name]
         try:
             if 'LookupSheets' in self.config and len(self.config['LookupSheets']) > 0:
-                lookup_sheets_found = True
                 self.lookup_sheet = self.config['LookupSheets']['LookupSheet']
-            else:
-                lookup_sheets_found = False
         except KeyError:
             raise IOIGeneratedError("[IOI-09] Cannot find 'LookupSheet' or child 'LookupSheets' key config.ini")
 
@@ -134,7 +129,7 @@ class ResoXLSXtoDict:
                 raise IOIGeneratedError("[IOI-11] Resource Sheet name '{0}' does not exist in .xlsx file".
                                         format(resource_sheet_name))
             self.logger.info("Reading Input Resource Worksheet: '{}'".format(ws.title))
-            self._create_resource_dict(resource_sheet_name, ws) # fill self.spreadsheet_info['Resources'][sheet_name]
+            self._create_resource_dict(resource_sheet_name, ws)  # fill self.spreadsheet_info['Resources'][sheet_name]
         # Read in Lookup Sheet rows
         if self.lookup_sheet is not None:
             try:
@@ -147,7 +142,6 @@ class ResoXLSXtoDict:
 
             if len(self.spreadsheet_info['Lookups']) == 0:
                 raise IOIGeneratedError('[W202] No Lookup Lookups Processed (tab: {})'.format(self.lookup_sheet))
-
 
     def _create_lookup_dict(self, ws):
         """ Populate xlsx lookup rows into internal dictionary (self.spreadsheet_info['Lookups'])
@@ -298,8 +292,8 @@ def main(argv):
     except DXMLGeneratedError as e:
         logger.error("Error creating XML File: " + e.value)
         sys.exit(-1)
-
     logger.info('** Program Ends in Success **')
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

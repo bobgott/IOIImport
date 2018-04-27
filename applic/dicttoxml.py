@@ -1,16 +1,17 @@
-import os
 import datetime
 import logging
 import ntpath
+import os
 from operator import itemgetter
+
+from lxml import etree as xml_tree
 from namedentities import *
 from treelib import Tree
 from treelib.tree import NodeIDAbsentError, MultipleRootError
-from lxml import etree as xml_tree
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
-__version_date__ = "04/25/2018"
+__version_date__ = "04/27/2018"
 __high_err_num__ = 47
 
 """ Change log
@@ -899,7 +900,7 @@ class DictToXML:
                 # value picks up 1st lookup value item and picks off EnumerationID .. all have same value
                 try:
                     val = lookup_field[1][0]['LookupFieldID']
-                except:
+                except KeyError:
                     val = None  # No NoLookupFieldID in .xlsx
                     # raise DXMLGeneratedError("[DXM-13] Error in accessing 'LookupFieldID' in Lookup tab")
 
