@@ -113,7 +113,7 @@ class DictToXML:
 
     def _load_page_titles_from_ddwiki_export(self, ddwiki_exported_filepath):
         """ Load Page Titles from exported xml file. Needed to check for duplicate Confluence page titles.
-        .. store into variable: (dict) field_and_lookup_names
+        .. store into (dict) field_and_lookup_names
 
         :param ddwiki_exported_filepath: (str) File name/path for latest dd wiki xml exported file
         :return: None. Raise DXMLGeneratedError on error.
