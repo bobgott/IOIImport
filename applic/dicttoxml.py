@@ -26,6 +26,7 @@ __high_err_num__ = 47
 5/24/2017 - Added ' Field' to collection reference columns for clarity 
 4/24/2018 - Fixed bug in finding duplicate names within lookup values
 4/25/2017 - Modified how code differentiates between Property Resource, Other Resources and Collections
+4/27/2018 - Optimized some code
 """
 
 
