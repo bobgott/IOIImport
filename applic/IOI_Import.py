@@ -11,6 +11,7 @@ from files_folders import FilesAndFolders
 
 __project__ = 'IOI_Import'
 __author__ = "Robert Gottesman"
+__version_number__ = "1.0.2"
 __version_date__ = "04/27/2018"
 __err_prefix__ = 'IOI'
 __high_err_num__ = 13
